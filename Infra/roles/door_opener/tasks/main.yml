@@ -1,2 +1,8 @@
 ---
 # tasks file for door_opener
+- name: Ensure i2c-tools package is present or install it
+  apt:
+    name: i2c-tools
+    state: present
+    update_cache: true
+

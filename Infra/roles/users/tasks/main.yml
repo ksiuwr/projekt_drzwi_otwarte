@@ -1,2 +1,16 @@
 ---
 # tasks file for users
+- name: Create remote_access group
+  group: 
+    name: remote_access 
+    state: present
+
+- name: Add users
+  user: 
+    name: "{{ item.login }}"
+    groups: "users{% if 'groups' in item %},{{ item.groups|join(',') }}{% endif %}"
+    shell: "/bin/bash" 
+    append: yes 
+    comment: "{{ item.fullname }}" 
+    password: "{{ item.password }}"
+  with_items: "{{ users }}"
