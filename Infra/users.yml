@@ -1,0 +1,9 @@
+---
+  users:
+    - login: bozydar
+      fullname: 'Bozydar'
+      password: ''
+      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDVtBBOQPGBDW8/2jd3S3VKu1pqbeQY+p1aZNXTMuumr3LazeqExU0Qnnj99DWeozMBLxhQYTpQyddLtmzOohqNYw0lA24OnTD/ONjHZ2n/5mhMpYcoZd0cXeIU7F6CflZeesWqwTMRic4GtDdyZ+0lHFm7tjbk2TFlHPzmcYFF57+CULaG9mrdg3PPK0OmIDc0tPglbV8lVvLNWxuyCfwguoEg6d1QVHnKKRNHapVRLlAxwd4FmGiM5mr6lRTHWIze+iGJ9wcY9UOOda5GRPosD3O9hmgROZtod//Nt6KjL46pCjk74JNoDnczubSt+UB6NMIPuK9+IJ8MxnCsGdQOS5JUqh5j8AF7r5K8cdrkImRRhvSOcSp3FXBCyO5gWFSDGD0u8p7x+2uRwqhuZiVeSEXYRdzcXWhhNh/lse7TDyaKbpnbjqK2z5aNcab2AChpe2eprmYu8A0LNOMQYShgaQamRFS1nETPhwwVF24DAGkb+V/EUcKddPrkGyyIFuFxls2WREox+3QirsGNcma//fs1TiCLYJKoLaLQm63pANX5iXxE7R/bc69Ms5osi5eWDKHYDc15tPQfw0VTycay6XE0z2oZvX78uothRHJTr/r2BIFEmGkd5pxBTLebr58Ozy6tnkc+kbZSf+CoFZlYATXRnYtUeNt/+thZJ+XvSw=='
+      groups:
+        - remote_access
+        - sudo
