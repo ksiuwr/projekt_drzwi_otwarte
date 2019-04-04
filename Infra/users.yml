@@ -7,3 +7,10 @@
       groups:
         - remote_access
         - sudo
+    - login: wiktor
+      fullname: 'Wiktor'
+      password: ''
+      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9IzmfKjxG7+5r6+/U4fLl0KXOe/LdlaiG1BF/b9H/uld22gIc+RuVV2AgQQ7vmZXDsANyQCgsEVKX/IhY4IwqqT+vNSLziM691vB8QYXKwSNc/tw4IOOJHRHqQrHfZ4ZfLaKQf++aH+g68y4li4VRcxMQA/vA9u9wB5V5UosWYV6BdXvCcBG1AY2VrBuu9gc/3BSTQxmBbrgn0S9OQklixgsxT8RBU1Aq8W2qIOUv4qkaMmAOr7Z44zutqFB1CMkgX70UyIeEHjZCNHvD7RRCnjFd4SjqnHK1hib8hN/Rg9VudkEvTMmkExIZ/chGxAy3O6eGOY/qHMRQCzuNIyfv'
+      groups:
+        - remote_access
+        - sudo
