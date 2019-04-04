@@ -14,3 +14,10 @@
       groups:
         - remote_access
         - sudo
+    - login: wpedrak
+      fullname: 'Wojtek'
+      password: ''
+      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYRtdhCNyQyy3hTQHb4fXfh1tK+ESRlpgCYbZTqrs1q4HhiqS6kB2n8Ot11vk1KDXaeglA+5QqnAZpzJoxxuQAURkTPuh0r5UyaibiZ03iFkLXTe8qnD3HGjSFRnHLMWFvH2M5RXzhjfHNg9ayUNoWMCcBYxeIjPmZeGgFUJZ5h5qi2X9w5j+5Gvng39kGYvX89XHECRWxIp5/QtwqXY/7SbkYjARmvxzASU80XS8ckIPfguTihVbV62/hVUyrkKB2atdAlSpd50hVrtXHwoc5p6UZJAUjiZIaTFJWE5pBZDhqzLB0Fpe45MHSCtBio2ZzWlXEC9H6JMarOEnTJABn'
+      groups:
+        - remote_access
+        - sudo
