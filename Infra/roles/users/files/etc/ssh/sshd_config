@@ -2,6 +2,16 @@ Port 22
 ListenAddress 0.0.0.0
 
 PermitRootLogin no
-
+PubkeyAuthentication yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
 
 UsePAM yes
+
+PrintMotd no
+TCPKeepAlive yes
+UseDNS no
+
+ClientAliveInterval 120
+
+AllowGroups remote_access
