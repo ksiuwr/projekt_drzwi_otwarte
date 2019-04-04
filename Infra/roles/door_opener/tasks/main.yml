@@ -6,3 +6,12 @@
     state: present
     update_cache: true
 
+- name: Set up static IP
+  copy:
+    src: etc/dhcpcd.conf
+    dest: /etc/dhcpcd.conf
+    owner: root
+    group: netdev
+    mode: 664
+  notify:
+   - Reboot rasp
