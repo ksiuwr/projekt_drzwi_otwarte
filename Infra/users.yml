@@ -21,3 +21,11 @@
       groups:
         - remote_access
         - sudo
+        
+    - login: arsenic
+      fullname: 'ArsenicRose'
+      password: ''
+      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4fPlIGtHngh8xQhKzJYuPgqzvK22rOCauUCOXWpXPkaH5jZpNgR/5VXbpFRCPXLNMKR4UeJ1YHmSJiAAVtqYtH9iP2Nd6fl6/l84fDVR++HXwIW38acLNyxan/inAVCR7/dYzemztDpnUNxLt3lhMPTg5JA+oXOf/IBg48gs8zfgXl7+E6dWLtumvpuGZZEtgvl5Fuv8GQUFV4Ddra+x4zGo0uahXVETVbrzqDxXdRr95giDC5QTFOlLX1nGnsGIQvu/xBrmUmR44mK2DBG3W/FJ/om3E1ISdpQDnIY9zhExeon0/CDrkwYx4qZyBHMEpmspkiZ2bFlAdSQiBfW9t'
+      groups:
+        - remote_access
+        - sudo

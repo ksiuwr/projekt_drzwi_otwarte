@@ -6,6 +6,11 @@
     state: present
     update_cache: true
 
+- name: Ensure py532lib python module is present
+  pip:
+    name: py532lib
+    executable: pip3
+
 - name: Set up static IP
   copy:
     src: etc/dhcpcd.conf
