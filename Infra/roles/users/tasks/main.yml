@@ -14,3 +14,25 @@
     comment: "{{ item.fullname }}" 
     password: "{{ item.password }}"
   with_items: "{{ users }}"
+
+- name: Setup authorized keys for users
+  authorized_key: 
+    user: "{{ item.login }}" 
+    key: "{{ item.pubkey }}"
+  with_items: "{{ users }}"
+
+- name: Install sshd_config
+  copy: 
+    src: "etc/ssh/sshd_config" 
+    dest: "/etc/ssh/sshd_config" 
+    mode: "0644" 
+    owner: "root" 
+    group: "root"
+
+- name: Allow sudo_group group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%sudo"
+    line: "%sudo ALL=(ALL) NOPASSWD: ALL"
+    validate: '/usr/sbin/visudo -cf %s'
