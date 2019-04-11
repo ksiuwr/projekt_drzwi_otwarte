@@ -20,6 +20,10 @@ Dziś ogarnęliśmy repozytorium na GitHubie i omówiliśmy kwestie nie rozwiąz
 
 Na dzisiejszym spotkaniu zlutowaliśmy nóżki do czytnika RFID (przy współpracy z Continuum) oraz podłączyliśmy go do Raspa. Napisaliśmy prosty skrypt odczytujące dane z kart Mifare, a także ustaliliśmy co należy jeszcze dokupić (przetwornica).
 
-## Spotkanie #4 - 04.04.2019
+### Spotkanie #4 - 04.04.2019
 
 Dzisiaj opisaliśmy za pomocą skryptów Ansible większą część obecnej już na Raspie konfiguracji oraz dodaliśmy konta dla członków projektu. Dogadaliśmy sprawy układu elektronicznego i zrobiliśmy więcej zdjęć przedstawiających nas przy pracy.
+
+### Spotkanie #5 - 11.04.2019
+
+Na dzisiejszym spotkaniu przedyskutowaliśmy sprawę bazy danych, postawiliśmy SQLite i stworzyliśmy pierwsze skrypty. Dodatkowo ogarnęliśmy techniczne aspekty montażu zamka.
