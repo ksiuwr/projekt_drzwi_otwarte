@@ -6,6 +6,18 @@
     state: present
     update_cache: true
 
+- name: Ensure sqlite3 is installed
+  apt:
+    name: sqlite3
+    state: present
+    update_cache: true
+
+- name: Ensure libsqlite3-dev is installed
+  apt:
+    name: libsqlite3-dev
+    state: present
+    update_cache: true
+
 - name: Ensure py532lib python module is present
   pip:
     name: py532lib
