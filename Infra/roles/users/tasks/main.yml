@@ -37,6 +37,8 @@
     mode: "0644" 
     owner: "root" 
     group: "root"
+  notify:
+  - restart sshd
 
 - name: Allow sudo_group group to have passwordless sudo
   lineinfile:
