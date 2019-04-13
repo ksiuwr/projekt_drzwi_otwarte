@@ -39,4 +39,4 @@
     dest: /etc/bash.bashrc
     owner: root
     group: netdev
-    mode: 664
+    mode: 644
