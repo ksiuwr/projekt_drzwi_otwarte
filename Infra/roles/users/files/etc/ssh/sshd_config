@@ -15,3 +15,6 @@ UseDNS no
 ClientAliveInterval 120
 
 AllowGroups remote_access
+
+# path to the banner 
+Banner {% if banner is defined %} /etc/ssh/sshd_banner {% else %} no {%endif%}
