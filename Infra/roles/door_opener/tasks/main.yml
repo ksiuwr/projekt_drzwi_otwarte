@@ -1,22 +1,24 @@
 ---
 # tasks file for door_opener
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
 - name: Ensure i2c-tools package is present or install it
   apt:
     name: i2c-tools
     state: present
-    update_cache: true
 
 - name: Ensure sqlite3 is installed
   apt:
     name: sqlite3
     state: present
-    update_cache: true
 
 - name: Ensure libsqlite3-dev is installed
   apt:
     name: libsqlite3-dev
     state: present
-    update_cache: true
 
 - name: Ensure py532lib python module is present
   pip:
