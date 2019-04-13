@@ -13,7 +13,7 @@ def addCard(name, serial):
     result = cursor.execute(query, name, serial)
 
     return ''
-    
+
 
 def checkCard(serial):
     return True

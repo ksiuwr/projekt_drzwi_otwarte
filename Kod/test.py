@@ -1,6 +1,6 @@
-from py532lib.i2c import *
-from py532lib.frame import *
-from py532lib.constants import *
+from py532lib.i2c import Pn532_i2c
+# from py532lib.frame import *
+# from py532lib.constants import *
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
@@ -14,7 +14,7 @@ def prety(to_prety):
 
 
 def get_serial(byte_array):
-    hex_data = bytes(card_data).hex()
+    hex_data = bytes(byte_array).hex()
     return hex_data[START_OF_SERIAL:START_OF_SERIAL+SERIAL_LENGTH]
 
 
