@@ -34,11 +34,3 @@
     mode: 664
   notify:
    - Reboot rasp
-
-- name: Set up anime girl
-  copy:
-    src: etc/bash.bashrc
-    dest: /etc/bash.bashrc
-    owner: root
-    group: netdev
-    mode: 644

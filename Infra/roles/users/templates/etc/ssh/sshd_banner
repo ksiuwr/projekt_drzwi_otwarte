@@ -1,0 +1,7 @@
+{% if banner.logo is defined %}
+{{banner.logo}}
+
+{% endif %}
+{% if banner.message is defined %}
+{{banner.message}}
+{% endif %}

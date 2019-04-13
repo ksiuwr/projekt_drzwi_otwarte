@@ -21,13 +21,24 @@
     key: "{{ item.pubkey }}"
   with_items: "{{ users }}"
 
+- name: Install sshd_banner
+  template: 
+    src: etc/ssh/sshd_banner 
+    dest: /etc/ssh/sshd_banner 
+    mode: 0644 
+    owner: root 
+    group: root
+  when: banner is defined
+
 - name: Install sshd_config
-  copy: 
+  template: 
     src: "etc/ssh/sshd_config" 
     dest: "/etc/ssh/sshd_config" 
     mode: "0644" 
     owner: "root" 
     group: "root"
+  notify:
+  - restart sshd
 
 - name: Allow sudo_group group to have passwordless sudo
   lineinfile:
