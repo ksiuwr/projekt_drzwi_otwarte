@@ -2,6 +2,10 @@
   become: yes
   vars_files:
     - users.yml
+  vars:
+    banner:
+      logo: "{{ lookup('file', 'anime_girl.txt') }}"
+      # message: "Some message"
   roles:
     - users
     - door_opener
