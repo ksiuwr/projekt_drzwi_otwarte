@@ -1,4 +1,6 @@
 from py532lib.i2c import Pn532_i2c
+from repository import *
+from time import sleep
 # from py532lib.frame import *
 # from py532lib.constants import *
 
@@ -17,6 +19,9 @@ def get_serial(byte_array: bytearray) -> str:
     hex_data = bytes(byte_array).hex()
     return hex_data[START_OF_SERIAL:START_OF_SERIAL+SERIAL_LENGTH]
 
+def open_door():
+    print('door open')
+    sleep(1)
 
 def main() -> None:
     pn532 = Pn532_i2c()
@@ -24,8 +29,11 @@ def main() -> None:
 
     while(True):
         card_data = pn532.read_mifare().get_data()
-        print(card_data)
-        print(get_serial(card_data))
+        serial_number = get_serial(card_data)
+        if is_authorized(serial_number):
+            open_door()
+        # print(card_data)
+        # print(get_serial(card_data))
         # print(prety(bytes(card_data).hex()))
 
         # print([x for x in card_data])
