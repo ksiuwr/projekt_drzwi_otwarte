@@ -5,15 +5,6 @@ TABLE_NAME = 'registeredCards'
 def getConnection():
     return sqlite3.connect(DATABASE_PATH)
 
-def executeSql(query, params):
-    connection = getConnection()
-    cursor = connection.cursor()
-
-    cursor.execute(query, params)
-    connection.commit()
-    connection.close()
-    return True
-
 def addCard(name, serial):
     query = f'''
         INSERT INTO {TABLE_NAME}(name, serial) 
