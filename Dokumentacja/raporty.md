@@ -27,3 +27,7 @@ Dzisiaj opisaliśmy za pomocą skryptów Ansible większą część obecnej już
 ### Spotkanie #5 - 11.04.2019
 
 Na dzisiejszym spotkaniu przedyskutowaliśmy sprawę bazy danych, postawiliśmy SQLite i stworzyliśmy pierwsze skrypty. Dodatkowo ogarnęliśmy techniczne aspekty montażu zamka.
+
+### Spotkanie #6 - 25.04.2019
+
+Dziś podłączyliśmy zamek do Raspa tworząc jednocześnie działający układ. Do tego stworzyliśmy bazę danych i zrobiliśmy MVP: odblokowywanie zamka po przyłożeniu autoryzowanej karty i blokowanie go po okresie dwóch sekund. Pobawiliśmy się układem sprawdzając czy zachowuje się jak powinien i przeduskutowaliśmy dalszy plan działania.
