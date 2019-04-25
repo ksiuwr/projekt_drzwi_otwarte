@@ -27,7 +27,7 @@ def get_serial(byte_array):
 # def open_door() -> None:
 def open_door() -> None:
     GPIO.output(RELAY_PIN, GPIO.LOW)
-    time.sleep(2)
+    sleep(2)
     GPIO.output(RELAY_PIN, GPIO.HIGH)
 
 # def main() -> None:
