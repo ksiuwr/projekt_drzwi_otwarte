@@ -2,15 +2,15 @@ import sqlite3
 DATABASE_PATH = 'doors.db'
 TABLE_NAME = 'registeredCards'
 
-def getConnection():
+def get_connection():
     return sqlite3.connect(DATABASE_PATH)
 
-def addCard(name, serial):
+def add_card(name, serial):
     query = f'''
         INSERT INTO {TABLE_NAME}(name, serial) 
         VALUES (:name,:serial)
     '''
-    connection = getConnection()
+    connection = get_connection()
     cursor = connection.cursor()
     params = {
         'name': name,
@@ -26,13 +26,13 @@ def addCard(name, serial):
     connection.close()
     return True
 
-def checkCard(serial):
+def is_authorized(serial):
     query = f'''
         SELECT count(*)
         FROM {TABLE_NAME}
         WHERE serial=:serial
     '''
-    connection = getConnection()
+    connection = get_connection()
     cursor = connection.cursor()
     params = {
         'serial': serial,
