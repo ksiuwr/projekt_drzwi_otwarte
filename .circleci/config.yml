@@ -10,8 +10,8 @@ jobs:
           name: Check ansible scripts syntax
           command: ansible-playbook Infra/rasp.yml --check
       - run: 
-          name: Run flake8 on python code (and ignore the result) 
-          command: flake8 Kod/ || true
+          name: Run flake8 on python code 
+          command: flake8 Kod/
       - run:
           name: Run mypy check
           command: mypy --config-file Kod/mypy.ini Kod/  

@@ -1,12 +1,14 @@
 import sqlite3
 DATABASE_PATH = 'door.db'
 
+
 def get_connection():
     return sqlite3.connect(DATABASE_PATH)
 
+
 def add_card(name, serial):
     query = '''
-        INSERT INTO registeredCards(name, serial) 
+        INSERT INTO registeredCards(name, serial)
         VALUES (:name,:serial)
     '''
     connection = get_connection()
@@ -24,6 +26,7 @@ def add_card(name, serial):
     connection.commit()
     connection.close()
     return True
+
 
 def is_authorized(serial):
     query = '''

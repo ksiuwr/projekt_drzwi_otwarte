@@ -1,5 +1,5 @@
 from py532lib.i2c import Pn532_i2c
-from repository import *
+from repository import is_authorized
 import RPi.GPIO as GPIO
 from time import sleep
 # from py532lib.frame import *
@@ -12,6 +12,7 @@ RELAY_PIN = 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RELAY_PIN, GPIO.OUT)
 
+
 # def prety(to_prety: str) -> str:
 def prety(to_prety):
     res = []
@@ -19,16 +20,19 @@ def prety(to_prety):
         res.append(to_prety[idx:idx+2])
     return " ".join(res)
 
+
 # def get_serial(byte_array: bytearray) -> str:
 def get_serial(byte_array):
     hex_data = bytes(byte_array).hex()
     return hex_data[START_OF_SERIAL:START_OF_SERIAL+SERIAL_LENGTH]
+
 
 # def open_door() -> None:
 def open_door() -> None:
     GPIO.output(RELAY_PIN, GPIO.LOW)
     sleep(2)
     GPIO.output(RELAY_PIN, GPIO.HIGH)
+
 
 # def main() -> None:
 def main():
