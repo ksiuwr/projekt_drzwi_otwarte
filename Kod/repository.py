@@ -1,5 +1,5 @@
 import sqlite3
-DATABASE_PATH = 'doors.db'
+DATABASE_PATH = 'door.db'
 
 def get_connection():
     return sqlite3.connect(DATABASE_PATH)
