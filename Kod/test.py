@@ -13,29 +13,29 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(RELAY_PIN, GPIO.OUT)
 
 
-# def prety(to_prety: str) -> str:
 def prety(to_prety):
+    # type: (str) -> str
     res = []
     for idx in range(0, len(to_prety), 2):
         res.append(to_prety[idx:idx+2])
     return " ".join(res)
 
 
-# def get_serial(byte_array: bytearray) -> str:
 def get_serial(byte_array):
+    # type: (bytearray) -> str
     hex_data = bytes(byte_array).hex()
     return hex_data[START_OF_SERIAL:START_OF_SERIAL+SERIAL_LENGTH]
 
 
-# def open_door() -> None:
-def open_door() -> None:
+def open_door():
+    # type: () -> None
     GPIO.output(RELAY_PIN, GPIO.LOW)
     sleep(2)
     GPIO.output(RELAY_PIN, GPIO.HIGH)
 
 
-# def main() -> None:
 def main():
+    # type: () -> None
     pn532 = Pn532_i2c()
     pn532.SAMconfigure()
     try:
