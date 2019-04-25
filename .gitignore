@@ -1,4 +1,6 @@
 *.retry
 *.tmp
 */.mypy_cache
-
+.vscode
+doors.db
+*.pyc
