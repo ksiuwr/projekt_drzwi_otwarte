@@ -60,4 +60,3 @@ def update_last_used(serial):
     connection.commit()
     connection.close()
     return True
-    
