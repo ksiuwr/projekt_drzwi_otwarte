@@ -1,6 +1,6 @@
-from py532lib.i2c import Pn532_i2c
+from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
 from repository import is_authorized
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO  # pylint: disable=import-error
 from time import sleep
 # from py532lib.frame import *
 # from py532lib.constants import *
