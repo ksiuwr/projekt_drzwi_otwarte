@@ -7,10 +7,7 @@ from time import sleep
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
-RELAY_PIN = 18
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(RELAY_PIN, GPIO.OUT)
+DOOR_LOCK_PIN = 18
 
 
 def prety(to_prety):
@@ -29,15 +26,20 @@ def get_serial(byte_array):
 
 def open_door():
     # type: () -> None
-    GPIO.output(RELAY_PIN, GPIO.LOW)
+    GPIO.output(DOOR_LOCK_PIN, GPIO.LOW)
     sleep(2)
-    GPIO.output(RELAY_PIN, GPIO.HIGH)
+    GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
 
+def initializeGPIO():
+    # type: () -> None
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(DOOR_LOCK_PIN, GPIO.OUT)
 
 def main():
     # type: () -> None
     pn532 = Pn532_i2c()
     pn532.SAMconfigure()
+    initializeGPIO()
     try:
         while(True):
             card_data = pn532.read_mifare().get_data()
