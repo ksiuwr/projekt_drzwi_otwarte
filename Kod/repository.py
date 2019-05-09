@@ -1,5 +1,5 @@
 import sqlite3
-DATABASE_PATH = 'door.db'
+DATABASE_PATH = 'doors.db'
 
 
 def get_connection():
@@ -43,3 +43,21 @@ def is_authorized(serial):
     count_of_serials = cursor.fetchone()
     connection.close()
     return count_of_serials[0] == 1
+
+
+def update_last_used(serial):
+    query = '''
+        UPDATE registeredCards
+        SET last_used = datetime('now','localtime')
+        WHERE serial=:serial
+    '''
+    connection = get_connection()
+    cursor = connection.cursor()
+    params = {
+        'serial': serial,
+    }
+    cursor.execute(query, params)
+    connection.commit()
+    connection.close()
+    return True
+    
