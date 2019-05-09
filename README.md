@@ -1,5 +1,7 @@
 # Projekt Drzwi Otwarte
 
+[![CircleCI](https://circleci.com/gh/ksiuwr/projekt_drzwi_otwarte.svg?style=shield)](https://circleci.com/gh/ksiuwr/projekt_drzwi_otwarte)
+
 ## Opis
 
 To repozytorium zawiera dokumentację oraz kod powstały podczas projektu **Drzwi Otwarte**. Projekt ma na celu skonstruowanie i zamontowanie autorskiego systemu kontroli dostępu do pokoju Koła Studentów Informatyki. 
