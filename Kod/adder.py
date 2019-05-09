@@ -2,6 +2,7 @@ from multiprocessing.connection import Listener, Client
 
 
 def main():
+    # type: () -> None
     listener = Listener(('localhost', 4003))
     address = ('localhost', 4004)
     outConn = Client(address)
