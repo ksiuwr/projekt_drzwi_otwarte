@@ -10,7 +10,7 @@ listener = Listener(address)
 while True:
     conn = listener.accept()
 
-    print 'connection accepted from', listener.last_accepted
+    print('connection accepted from', listener.last_accepted)
     msg = conn.recv()
     print(msg)
 
