@@ -28,6 +28,7 @@ def open_door():
     # type: () -> None
     GPIO.output(DOOR_LOCK_PIN, GPIO.LOW)
     sleep(2)
+    GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
 
 def initializeGPIO():
     # type: () -> None
