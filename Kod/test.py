@@ -30,11 +30,13 @@ def open_door():
     sleep(2)
     GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
 
+
 def initializeGPIO():
     # type: () -> None
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(DOOR_LOCK_PIN, GPIO.OUT)
     GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
+
 
 def main():
     # type: () -> None
