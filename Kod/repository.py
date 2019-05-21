@@ -72,3 +72,28 @@ def update_last_used(serial):
     connection.close()
 
     return True
+
+
+def log_message(type, message):
+    # type: (str, str) -> bool
+    query = '''
+        INSERT INTO logs(type, message)
+        VALUES (:type,:message)
+    '''
+    connection = get_connection()
+    cursor = connection.cursor()
+    params = {
+        'type': type,
+        'message': message,
+    }
+
+    try:
+        cursor.execute(query, params)
+    except sqlite3.IntegrityError as e:
+        print(e)
+        return False
+
+    connection.commit()
+    connection.close()
+
+    return True
