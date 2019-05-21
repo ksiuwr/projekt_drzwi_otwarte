@@ -7,6 +7,7 @@ ADDER_SOCKET_NAME = '/tmp/adder'
 
 username_to_add = None
 
+
 def process_read_command(card_serial):
     if username_to_add:
         add_card(username_to_add, card_serial)
