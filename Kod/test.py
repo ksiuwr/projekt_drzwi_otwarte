@@ -35,7 +35,7 @@ def initializeGPIO():
     # type: () -> None
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(DOOR_LOCK_PIN, GPIO.OUT)
-
+    GPIO.output(DOOR_LOCK_PIN, GPIO.LOW)
 
 def main():
     # type: () -> None
