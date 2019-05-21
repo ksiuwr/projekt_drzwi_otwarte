@@ -53,9 +53,9 @@ if __name__ == '__main__':
             else:
                 log_message('error', 'Unknown command: ' + command)
 
-            listener.close()
     finally:
         cleanup_door()
+        listener.close()
 
 # from multiprocessing.connection import Client
 
