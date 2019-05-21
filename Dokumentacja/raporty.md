@@ -39,3 +39,7 @@ Dzisiaj zajęliśmy się oprogramowaniem: ustaliliśmy architekturę całego sys
 ### Spotkanie #8 - 18.05.2019
 
 Dzisiejsze spotkanie miało charakter informacyjno-dyskusyjny. Omówiliśmy aktualny stan projektu, dalszy kierunek rozwoju oprogramowania oraz zadania i problemy związane z montażem. Przedyskutowaliśmy też pomysły zmian i stworzyliśmy listę zadań do zrobienia na kolejnych spotkaniach.
+
+### Spotkanie #9 - 21.05.2019
+
+Na dzisiejszym spotkaniu w dalszym ciągu rozwijajiśmy aplikację. Dodaliśmy logowanie błędów, powydzielaliśmy moduły i zmieniliśmy sockety na unixowe. Pomęczyliśmy się z flake8, naprawiliśmy kilka błędów i zaplanowaliśmy dalszą pracę.
