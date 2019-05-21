@@ -1,6 +1,6 @@
 from multiprocessing.connection import Listener
-from repository import *
-from door_lock import *
+from repository import add_card, is_authorized, log_message
+from door_lock import initialize_door, open_door, cleanup_door
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
@@ -22,24 +22,26 @@ process_add_command():
 
 if __name__ == '__main__':
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
-    initialize_door()
+    try:
+        initialize_door()
+        while True:
+            conn = listener.accept()
 
-    while True:
-        conn = listener.accept()
+            print('connection accepted from', listener.last_accepted)
+            msg = conn.recv()
+            print('Message: ', msg)
+            command = msg['type']
+            value = msg['value']
+            if command == 'read':
+                process_read_command(value)
+            elif command == 'add':
+                process_add_command()
+            else:
+                log_message('error', '[worker] Unknown command: ' + command)
 
-        print('connection accepted from', listener.last_accepted)
-        msg = conn.recv()
-        print('Message: ', msg)
-        command = msg['type']
-        value = msg['value']
-        if command == 'read':
-            process_read_command(value)
-        elif command == 'add':
-            process_add_command()
-        else:
-            log_message('error', '[worker] Unknown command: ' + command)
-
-        listener.close()
+            listener.close()
+    finally:
+        cleanup_door()
 
 # from multiprocessing.connection import Client
 
