@@ -97,3 +97,23 @@ def log_message(type, message):
     connection.close()
 
     return True
+
+
+def get_name(serial):
+    # type: (str) -> str
+    query = '''
+        SELECT name
+        FROM registeredCards
+        WHERE serial=:serial
+    '''
+
+    connection = get_connection()
+    cursor = connection.cursor()
+    params = {
+        'serial': serial,
+    }
+
+    cursor.execute(query, params)
+    name = cursor.fetchone()
+    connection.close()
+    return name[0]
