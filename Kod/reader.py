@@ -1,4 +1,5 @@
 from multiprocessing.connection import Client
+from time import sleep
 from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
 
 
@@ -20,3 +21,4 @@ while(True):
     connection = Client('/tmp/worker', 'AF_UNIX')
     connection.send({'type': 'read', 'value': serial_number})
     connection.close()
+    sleep(2)
