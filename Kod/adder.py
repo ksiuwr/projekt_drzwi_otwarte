@@ -3,8 +3,7 @@ from multiprocessing.connection import Listener, Client
 
 def main():
     listener = Listener('/tmp/adder', 'AF_UNIX')
-    address = ('/tmp/worker' 'AF_UNIX')
-    outConn = Client(address)
+    outConn = Client('/tmp/worker', 'AF_UNIX')
 
     print('Enter new users name')
     name = input('>')
