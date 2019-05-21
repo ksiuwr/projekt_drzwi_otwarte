@@ -30,8 +30,12 @@ Na dzisiejszym spotkaniu przedyskutowaliśmy sprawę bazy danych, postawiliśmy 
 
 ### Spotkanie #6 - 25.04.2019
 
-Dziś podłączyliśmy zamek do Raspa tworząc jednocześnie działający układ. Do tego stworzyliśmy bazę danych i zrobiliśmy MVP: odblokowywanie zamka po przyłożeniu autoryzowanej karty i blokowanie go po okresie dwóch sekund. Pobawiliśmy się układem sprawdzając czy zachowuje się jak powinien i przeduskutowaliśmy dalszy plan działania.
+Dziś podłączyliśmy zamek do Raspa tworząc jednocześnie działający układ. Do tego stworzyliśmy bazę danych i zrobiliśmy MVP: odblokowywanie zamka po przyłożeniu autoryzowanej karty i blokowanie go po okresie dwóch sekund. Pobawiliśmy się układem sprawdzając czy zachowuje się jak powinien i przedyskutowaliśmy dalszy plan działania.
 
 ### Spotkanie #7 - 09.05.2019
 
 Dzisiaj zajęliśmy się oprogramowaniem: ustaliliśmy architekturę całego systemu (3 procesy komunikujące się z sobą) i zaimplementowaliśmy skrypt realizujący nadawanie praw do otwierania drzwi dla nowej osoby. Dodatkowo rozszerzyliśmy bazę danych o informacje kiedy ostatnio dany użytkownik otwierał drzwi.
+
+### Spotkanie #8 - 18.05.2019
+
+Dzisiejsze spotkanie miało charakter informacyjno-dyskusyjny. Omówiliśmy aktualny stan projektu, dalszy kierunek rozwoju oprogramowania oraz zadania i problemy związane z montażem. Przedyskutowaliśmy też pomysły zmian i stworzyliśmy listę zadań do zrobienia na kolejnych spotkaniach.

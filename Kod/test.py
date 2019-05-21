@@ -1,9 +1,9 @@
-from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
-from repository import is_authorized, update_last_used
-import RPi.GPIO as GPIO  # pylint: disable=import-error
 from time import sleep
-# from py532lib.frame import *
-# from py532lib.constants import *
+
+from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
+import RPi.GPIO as GPIO  # pylint: disable=import-error
+
+from repository import is_authorized, update_last_used
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
