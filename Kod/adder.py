@@ -2,8 +2,8 @@ from multiprocessing.connection import Listener, Client
 
 
 def main():
-    listener = Listener(('localhost', 4003))
-    address = ('localhost', 4004)
+    listener = Listener('/tmp/adder', 'AF_UNIX')
+    address = ('/tmp/worker' 'AF_UNIX')
     outConn = Client(address)
 
     print('Enter new users name')

@@ -1,17 +1,18 @@
 from multiprocessing.connection import Listener
 
-ADDER_PORT = 4003
-WORKER_PORT = 4004
-HOST = 'localhost'
-
-address = (HOST, WORKER_PORT)
-listener = Listener(address)
+listener = Listener('/tmp/worker', 'AF_UNIX')
 
 while True:
     conn = listener.accept()
 
     print('connection accepted from', listener.last_accepted)
     msg = conn.recv()
+    command = msg['type']
+    if command == 'read':
+        pass
+    elif command == 'add':
+        pass
+    
     print(msg)
 
     listener.close()
