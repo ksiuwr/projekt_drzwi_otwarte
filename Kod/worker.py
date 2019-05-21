@@ -12,7 +12,7 @@ while True:
         pass
     elif command == 'add':
         pass
-    
+
     print(msg)
 
     listener.close()
