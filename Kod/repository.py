@@ -23,7 +23,7 @@ def add_card(name, serial):
     try:
         cursor.execute(query, params)
     except sqlite3.IntegrityError as e:
-        print(e)
+        log_message('error', e)
         return False
 
     connection.commit()
@@ -76,6 +76,8 @@ def update_last_used(serial):
 
 def log_message(type, message):
     # type: (str, str) -> bool
+    types = ['add', 'open', 'reject', 'error']
+
     query = '''
         INSERT INTO logs(type, message)
         VALUES (:type,:message)
@@ -83,16 +85,11 @@ def log_message(type, message):
     connection = get_connection()
     cursor = connection.cursor()
     params = {
-        'type': type,
+        'type': type if type in types else 'unknown',
         'message': message,
     }
 
-    try:
-        cursor.execute(query, params)
-    except sqlite3.IntegrityError as e:
-        print(e)
-        return False
-
+    cursor.execute(query, params)
     connection.commit()
     connection.close()
 
