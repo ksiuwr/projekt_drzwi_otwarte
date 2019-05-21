@@ -9,6 +9,7 @@ username_to_add = None
 
 
 def process_read_command(card_serial):
+    global username_to_add
     update_last_used(card_serial)
 
     if username_to_add:
