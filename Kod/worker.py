@@ -7,17 +7,17 @@ ADDER_SOCKET_NAME = '/tmp/adder'
 
 username_to_add = None
 
-process_read_command(card_serial):
+def process_read_command(card_serial):
     if name_to_add:
         add_card(username_to_add, card_serial)
         return
 
     if not is_authorized(card_serial):
         return
-    
+
     open_door()
 
-process_add_command():
+def process_add_command():
     pass
 
 if __name__ == '__main__':
