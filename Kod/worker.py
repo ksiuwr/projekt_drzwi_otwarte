@@ -1,6 +1,6 @@
 from multiprocessing.connection import Listener
 from repository import add_card, is_authorized, log_message
-from door_lock import initialize_door, open_door, cleanup_door
+from door_lock import cleanup_door, initialize_door, open_door
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
@@ -8,7 +8,7 @@ ADDER_SOCKET_NAME = '/tmp/adder'
 username_to_add = None
 
 def process_read_command(card_serial):
-    if name_to_add:
+    if username_to_add:
         add_card(username_to_add, card_serial)
         return
 
@@ -17,8 +17,10 @@ def process_read_command(card_serial):
 
     open_door()
 
+
 def process_add_command():
     pass
+
 
 if __name__ == '__main__':
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
