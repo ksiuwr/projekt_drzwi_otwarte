@@ -1,10 +1,11 @@
 from multiprocessing.connection import Listener
-from repository import 
+from repository import (
     add_card, 
     get_name, 
     is_authorized, 
     log_message, 
     update_last_used
+)
 from door_lock import cleanup_door, initialize_door, open_door
 
 WORKER_SOCKET_NAME = '/tmp/worker'
