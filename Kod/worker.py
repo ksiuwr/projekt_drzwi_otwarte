@@ -1,21 +1,46 @@
 from multiprocessing.connection import Listener
+from repository import *
+from door_lock import *
 
-listener = Listener('/tmp/worker', 'AF_UNIX')
+WORKER_SOCKET_NAME = '/tmp/worker'
+ADDER_SOCKET_NAME = '/tmp/adder'
 
-while True:
-    conn = listener.accept()
+username_to_add = None
 
-    print('connection accepted from', listener.last_accepted)
-    msg = conn.recv()
-    command = msg['type']
-    if command == 'read':
-        pass
-    elif command == 'add':
-        pass
+process_read_command(card_serial):
+    if name_to_add:
+        add_card(username_to_add, card_serial)
+        return
+
+    if not is_authorized(card_serial):
+        return
     
-    print(msg)
+    open_door()
 
-    listener.close()
+process_add_command():
+    pass
+
+if __name__ == '__main__':
+    listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
+    initialize_door()
+
+    while True:
+        conn = listener.accept()
+
+        print('connection accepted from', listener.last_accepted)
+        msg = conn.recv()
+        command = msg['type']
+        value = msg['value']
+        if command == 'read':
+            process_read_command(value)
+        elif command == 'add':
+            process_add_command()
+        else:
+            
+
+        print(msg)
+
+        listener.close()
 
 # from multiprocessing.connection import Client
 
