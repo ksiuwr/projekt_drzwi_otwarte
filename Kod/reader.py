@@ -1,5 +1,4 @@
 from multiprocessing.connection import Client
-from repository import is_authorized, update_last_used
 from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
 
 
@@ -20,6 +19,4 @@ pn532.SAMconfigure()
 while(True):
     card_data = pn532.read_mifare().get_data()
     serial_number = get_serial(card_data)
-    if is_authorized(serial_number):
-        update_last_used(serial_number)
-        connection.send({'type': 'read', 'value': serial_number})
+    connection.send({'type': 'read', 'value': serial_number})

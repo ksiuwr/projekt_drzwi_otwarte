@@ -1,5 +1,5 @@
 from multiprocessing.connection import Listener
-from repository import add_card, is_authorized, log_message
+from repository import add_card, is_authorized, log_message, update_last_used
 from door_lock import cleanup_door, initialize_door, open_door
 
 WORKER_SOCKET_NAME = '/tmp/worker'
@@ -9,6 +9,7 @@ username_to_add = None
 
 
 def process_read_command(card_serial):
+    update_last_used(serial_number)
     if username_to_add:
         add_card(username_to_add, card_serial)
         return
