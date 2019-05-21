@@ -44,7 +44,7 @@ def main():
     pn532.SAMconfigure()
     initializeGPIO()
     try:
-        while(True):
+        while True:
             card_data = pn532.read_mifare().get_data()
             serial_number = get_serial(card_data)
             if is_authorized(serial_number):

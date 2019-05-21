@@ -12,10 +12,12 @@ def main():
 
     conn = listener.accept()
     msg = conn.recv()
+
     if msg['type'] == 'ack':
         print('User added')
     else:
         print('Error: ' + msg['value'])
+
     conn.close()
     listener.close()
 

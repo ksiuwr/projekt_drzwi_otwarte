@@ -1,5 +1,5 @@
-import RPi.GPIO as GPIO  # pylint: disable=import-error
 from time import sleep
+import RPi.GPIO as GPIO  # pylint: disable=import-error
 
 DOOR_LOCK_PIN = 18
 
