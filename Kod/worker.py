@@ -29,6 +29,7 @@ if __name__ == '__main__':
 
         print('connection accepted from', listener.last_accepted)
         msg = conn.recv()
+        print('Message: ', msg)
         command = msg['type']
         value = msg['value']
         if command == 'read':
@@ -36,9 +37,7 @@ if __name__ == '__main__':
         elif command == 'add':
             process_add_command()
         else:
-            
-
-        print(msg)
+            log_message('error', '[worker] Unknown command: ' + command)
 
         listener.close()
 
