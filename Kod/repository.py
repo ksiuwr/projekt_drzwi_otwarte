@@ -23,7 +23,7 @@ def add_card(name, serial):
     try:
         cursor.execute(query, params)
     except sqlite3.IntegrityError as e:
-        log_message('error', e)
+        log_message("error", e)
         return False
 
     connection.commit()
