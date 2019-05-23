@@ -3,7 +3,7 @@ from time import sleep
 from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
 import RPi.GPIO as GPIO  # pylint: disable=import-error
 
-from repository import is_authorized, update_last_used
+from repository import Repository
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
@@ -47,8 +47,8 @@ def main():
         while True:
             card_data = pn532.read_mifare().get_data()
             serial_number = get_serial(card_data)
-            if is_authorized(serial_number):
-                update_last_used(serial_number)
+            if Repository.is_authorized(serial_number):
+                Repository.update_last_used(serial_number)
                 open_door()
     except KeyboardInterrupt:
         GPIO.cleanup()
