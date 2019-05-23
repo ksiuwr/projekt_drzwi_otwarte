@@ -1,23 +1,25 @@
 from time import sleep
-import RPi.GPIO as GPIO  # pylint: disable=import-error
-
-DOOR_LOCK_PIN = 18
+import RPi.GPIO as GPIO
 
 
-def open_door():
-    # type: () -> None
-    GPIO.output(DOOR_LOCK_PIN, GPIO.LOW)
-    sleep(2)
-    GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
+class Door:
+    LOCK_PIN = 18
 
+    @staticmethod
+    def open():
+        # type: () -> None
+        GPIO.output(Door.LOCK_PIN, GPIO.LOW)
+        sleep(2)
+        GPIO.output(Door.LOCK_PIN, GPIO.HIGH)
 
-def initialize_door():
-    # type: () -> None
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(DOOR_LOCK_PIN, GPIO.OUT)
-    GPIO.output(DOOR_LOCK_PIN, GPIO.HIGH)
+    @staticmethod
+    def initialize():
+        # type: () -> None
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(Door.LOCK_PIN, GPIO.OUT)
+        GPIO.output(Door.LOCK_PIN, GPIO.HIGH)
 
-
-def cleanup_door():
-    # type: () -> None
-    GPIO.cleanup()
+    @staticmethod
+    def cleanup():
+        # type: () -> None
+        GPIO.cleanup()

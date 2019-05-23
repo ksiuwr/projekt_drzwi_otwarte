@@ -1,6 +1,6 @@
 from multiprocessing.connection import Listener
 from repository import Repository
-from door_lock import cleanup_door, initialize_door, open_door
+from door_lock import Door
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
@@ -34,7 +34,7 @@ def process_read_command(card_serial):
     Repository.log_message(
         'open',
         card_serial + ' (' + Repository.get_name(card_serial) + ')')
-    open_door()
+    Door.open()
 
 
 def process_add_command():
@@ -46,7 +46,7 @@ def main():
     # type: () -> None
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
     try:
-        initialize_door()
+        Door.initialize()
         while True:
             conn = listener.accept()
 
@@ -64,7 +64,7 @@ def main():
                 Repository.log_message('error', 'Unknown command: ' + command)
 
     finally:
-        cleanup_door()
+        Door.cleanup()
         listener.close()
 
 
