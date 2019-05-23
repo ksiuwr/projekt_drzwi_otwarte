@@ -15,6 +15,7 @@ username_to_add = None
 
 
 def process_read_command(card_serial):
+    # type: (str) -> None
     global username_to_add
     update_last_used(card_serial)
 
@@ -37,10 +38,12 @@ def process_read_command(card_serial):
 
 
 def process_add_command():
+    # type: () -> None
     pass
 
 
-if __name__ == '__main__':
+def main():
+    # type: () -> None
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
     try:
         initialize_door()
@@ -63,11 +66,6 @@ if __name__ == '__main__':
         cleanup_door()
         listener.close()
 
-# from multiprocessing.connection import Client
 
-# address = ('localhost', 6000)
-# conn = Client(address, authkey='secret password')
-# conn.send('close')
-# # can also send arbitrary objects:
-# # conn.send(['a', 2.5, None, int, sum])
-# conn.close()
+if __name__ == '__main__':
+    main()
