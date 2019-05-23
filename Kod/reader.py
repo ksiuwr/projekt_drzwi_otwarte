@@ -1,6 +1,6 @@
 from multiprocessing.connection import Client
 from time import sleep
-from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
+from py532lib.i2c import Pn532_i2c
 
 
 START_OF_SERIAL = 14

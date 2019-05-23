@@ -1,7 +1,7 @@
 from time import sleep
 
-from py532lib.i2c import Pn532_i2c  # pylint: disable=import-error
-import RPi.GPIO as GPIO  # pylint: disable=import-error
+from py532lib.i2c import Pn532_i2c
+import RPi.GPIO as GPIO
 
 from repository import Repository
 
