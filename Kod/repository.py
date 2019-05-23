@@ -22,14 +22,14 @@ def add_card(name, serial):
 
     try:
         cursor.execute(query, params)
+        connection.commit()
+        connection.close()
+        return True
     except sqlite3.IntegrityError as e:
         log_message("error", "sqlite3.IntegrityError: " + str(e))
+        connection.rollback()
+        connection.close()
         return False
-
-    connection.commit()
-    connection.close()
-
-    return True
 
 
 def is_authorized(serial):
