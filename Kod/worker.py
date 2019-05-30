@@ -9,6 +9,7 @@ ADDER_SOCKET_NAME = '/tmp/adder'
 ACK = 'ack'
 ERROR = 'error'
 
+
 def respond_adder(success, username, card_serial):
     # type (bool, str, str) -> None
     message = {
@@ -72,7 +73,9 @@ def main():
             elif command == 'add':
                 name_to_add = process_add_command(value)
             else:
-                Repository.log_message('error', 'Unknown command: {}'.format(command))
+                Repository.log_message(
+                    'error',
+                    'Unknown command: {}'.format(command))
 
     finally:
         Door.cleanup()
