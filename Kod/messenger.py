@@ -1,10 +1,10 @@
 from multiprocessing.connection import Client
-from os.path import isfile
+from os.path import exists
 
 
 def send(socket, message):
     # (string, object) -> bool
-    if not isfile(socket):
+    if not exists(socket):
         return False
     connection = Client(socket, 'AF_UNIX')
     connection.send(message)
