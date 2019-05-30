@@ -1,12 +1,16 @@
 from multiprocessing.connection import Listener
+import sys
 import messenger
 
 
 def main():
     listener = Listener('/tmp/adder', 'AF_UNIX')
 
-    print('Enter new users name')
-    name = input('>')
+    if len(sys.argv) == 1:
+        print('Enter new users name')
+        name = input('>')
+    else:
+        name = ' '.join(sys.argv[1:])
     if messenger.send('/tmp/worker', {'type': 'add', 'value': name}):
         print('Now read a card with reader')
 
