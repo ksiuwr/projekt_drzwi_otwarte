@@ -1,45 +1,54 @@
 from multiprocessing.connection import Listener
 from repository import Repository
 from door_lock import Door
+import messenger
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
 
-username_to_add = None
+ACK = 'ack'
+ERROR = 'error'
+
+def respond_adder(success, username, card_serial):
+    message = {
+        'type': ACK if success else ERROR,
+        'message': '{} ({})'.format(card_serial, username)
+    }
+
+    messenger.send(ADDER_SOCKET_NAME, message)
 
 
-def process_read_command(card_serial):
+def process_read_command(card_serial, username_to_add):
     # type: (str) -> None
-    global username_to_add
     Repository.update_last_used(card_serial)
 
     if username_to_add:
         success = Repository.add_card(username_to_add, card_serial)
+        respond_adder(success, username_to_add, card_serial)
         if success:
             Repository.log_message(
                 'add',
-                card_serial + ' (' + username_to_add + ')')
+                '{} ({})'.format(card_serial, username_to_add))
         else:
             Repository.log_message(
                 'error',
-                'Failed to add card: ' + card_serial)
+                'Failed to add card: {}'.format(card_serial))
 
-        username_to_add = None
         return
 
     if not Repository.is_authorized(card_serial):
-        Repository.log_message('reject', '' + card_serial)
+        Repository.log_message('reject', str(card_serial))
         return
 
     Repository.log_message(
         'open',
-        card_serial + ' (' + Repository.get_name(card_serial) + ')')
+        '{} ({})'.format(card_serial, Repository.get_name(card_serial)))
     Door.open()
 
 
-def process_add_command():
+def process_add_command(value):
     # type: () -> None
-    pass
+    return value
 
 
 def main():
@@ -47,6 +56,7 @@ def main():
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
     try:
         Door.initialize()
+        name_to_add = None
         while True:
             conn = listener.accept()
 
@@ -57,11 +67,11 @@ def main():
             value = msg['value']
 
             if command == 'read':
-                process_read_command(value)
+                name_to_add = process_read_command(value, name_to_add)
             elif command == 'add':
-                process_add_command()
+                name_to_add = process_add_command(value)
             else:
-                Repository.log_message('error', 'Unknown command: ' + command)
+                Repository.log_message('error', 'Unknown command: {}'.format(command))
 
     finally:
         Door.cleanup()
