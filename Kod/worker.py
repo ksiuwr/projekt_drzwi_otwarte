@@ -1,7 +1,9 @@
 from multiprocessing.connection import Listener
+from typing import Optional
 from repository import Repository
 from door_lock import Door
 import messenger
+
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
@@ -21,7 +23,7 @@ def respond_adder(success, username, card_serial):
 
 
 def process_read_command(card_serial, username_to_add):
-    # type: (str, str) -> None
+    # type: (str, Optional[str]) -> None
     Repository.update_last_used(card_serial)
 
     if username_to_add:
@@ -70,7 +72,8 @@ def main():
             value = msg['value']
 
             if command == 'read':
-                name_to_add = process_read_command(value, name_to_add)
+                process_read_command(value, name_to_add)
+                name_to_add = None
             elif command == 'add':
                 name_to_add = process_add_command(value)
             else:
