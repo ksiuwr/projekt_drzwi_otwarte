@@ -10,6 +10,7 @@ ACK = 'ack'
 ERROR = 'error'
 
 def respond_adder(success, username, card_serial):
+    # type (bool, str, str) -> None
     message = {
         'type': ACK if success else ERROR,
         'message': '{} ({})'.format(card_serial, username)
@@ -19,7 +20,7 @@ def respond_adder(success, username, card_serial):
 
 
 def process_read_command(card_serial, username_to_add):
-    # type: (str) -> None
+    # type: (str, str) -> None
     Repository.update_last_used(card_serial)
 
     if username_to_add:
@@ -47,7 +48,7 @@ def process_read_command(card_serial, username_to_add):
 
 
 def process_add_command(value):
-    # type: () -> None
+    # type: (str) -> str
     return value
 
 
