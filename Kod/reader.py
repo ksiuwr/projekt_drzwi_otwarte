@@ -5,7 +5,7 @@ from py532lib.i2c import Pn532_i2c
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
-
+READ_INTERVAL = 3
 
 def get_serial(byte_array):
     # type: (bytearray) -> str
@@ -24,7 +24,7 @@ def main():
         connection = Client('/tmp/worker', 'AF_UNIX')
         connection.send({'type': 'read', 'value': serial_number})
         connection.close()
-        sleep(2)
+        sleep(READ_INTERVAL)
 
 
 if __name__ == "__main__":

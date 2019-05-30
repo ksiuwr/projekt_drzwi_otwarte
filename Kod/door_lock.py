@@ -4,12 +4,13 @@ import RPi.GPIO as GPIO
 
 class Door:
     LOCK_PIN = 18
+    OPEN_INTERVAL = 2
 
     @staticmethod
     def open():
         # type: () -> None
         GPIO.output(Door.LOCK_PIN, GPIO.LOW)
-        sleep(2)
+        sleep(OPEN_INTERVAL)
         GPIO.output(Door.LOCK_PIN, GPIO.HIGH)
 
     @staticmethod
