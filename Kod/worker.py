@@ -36,16 +36,17 @@ def process_read_command(card_serial, username_to_add):
                 'error',
                 'Failed to add card: {}'.format(card_serial))
 
-        return
+        return None
 
     if not Repository.is_authorized(card_serial):
         Repository.log_message('reject', str(card_serial))
-        return
+        return None
 
     Repository.log_message(
         'open',
         '{} ({})'.format(card_serial, Repository.get_name(card_serial)))
     Door.open()
+    return None
 
 
 def process_add_command(value):
