@@ -10,7 +10,7 @@ class Door:
     def open():
         # type: () -> None
         GPIO.output(Door.LOCK_PIN, GPIO.LOW)
-        sleep(OPEN_INTERVAL)
+        sleep(Door.OPEN_INTERVAL)
         GPIO.output(Door.LOCK_PIN, GPIO.HIGH)
 
     @staticmethod
