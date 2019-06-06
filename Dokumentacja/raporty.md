@@ -43,3 +43,7 @@ Dzisiejsze spotkanie miało charakter informacyjno-dyskusyjny. Omówiliśmy aktu
 ### Spotkanie #9 - 21.05.2019
 
 Na dzisiejszym spotkaniu w dalszym ciągu rozwijajiśmy aplikację. Dodaliśmy logowanie błędów, powydzielaliśmy moduły i zmieniliśmy sockety na unixowe. Pomęczyliśmy się z flake8, naprawiliśmy kilka błędów i zaplanowaliśmy dalszą pracę.
+
+### Spotkanie #10 - 30.05.2019
+
+Dziś udało się nam skończyć MVP - nasza aplikacja umożliwia już otwieranie zamka na podstawie odczytania karty i rekordu w bazie, dodawanie nowych użytkowników i obsługę ewentualnych błędów. Popracowaliśmy nad jakością naszego kodu i zaplanowaliśmy następne spotkanie.
