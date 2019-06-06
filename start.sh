@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # no idea why, but people on stack say so...
-script /dev/null 
+# script /dev/null 
 
 cd $DOOR_HOME
 rm -f /tmp/worker
