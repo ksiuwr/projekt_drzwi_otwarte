@@ -53,6 +53,7 @@ def main():
     except KeyboardInterrupt:
         GPIO.cleanup()
 
+
 def test_card():
     # type: () -> None
     pn532 = Pn532_i2c()
@@ -60,11 +61,14 @@ def test_card():
     while True:
         card_data = pn532.read_mifare().get_data()
         serial_number = get_serial(card_data)
-        pretty = prety(str(bytes(card_data), 'utf-8'))
+        # print(bytes(card_data).hex())
+        pretty = prety(bytes(card_data).hex())
         print('Serial number:', serial_number)
         print('All data     :', pretty)
-        sleep(2)
+        print('---')
+        sleep(1)
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    test_card()
