@@ -2,8 +2,8 @@
 # tasks file for door_opener
 - name: Update and upgrade apt packages
   apt:
-    upgrade: yes
-    update_cache: yes
+    upgrade: 'yes'
+    update_cache: 'yes'
 
 - name: Ensure i2c-tools package is present or install it
   apt:
@@ -20,6 +20,21 @@
     name: libsqlite3-dev
     state: present
 
+- name: Ensure screen is installed
+  apt:
+    name: screen
+    state: present
+
+- name: Ensure vim is installed
+  apt:
+    name: vim
+    state: present
+
+- name: Ensure tig is installed
+  apt:
+    name: tig
+    state: present
+
 - name: Ensure py532lib python module is present
   pip:
     name: py532lib
@@ -31,6 +46,14 @@
     dest: /etc/dhcpcd.conf
     owner: root
     group: netdev
-    mode: 664
+    mode: 0664
   notify:
    - Reboot rasp
+
+- name: Ensure correct .bashrc for user pi
+  copy:
+    src: home/pi/.bashrc
+    dest: /home/pi/.bashrc
+    owner: pi
+    group: pi
+    mode: 0644
