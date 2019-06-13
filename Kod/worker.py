@@ -62,6 +62,7 @@ def main():
     try:
         Door.initialize()
         name_to_add = None
+        print('Worker started')
         while True:
             conn = listener.accept()
 

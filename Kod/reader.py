@@ -19,6 +19,7 @@ def main():
     pn532 = Pn532_i2c()
     pn532.SAMconfigure()
 
+    print('Reader started')
     while True:
         card_data = pn532.read_mifare().get_data()
         serial_number = get_serial(card_data)
