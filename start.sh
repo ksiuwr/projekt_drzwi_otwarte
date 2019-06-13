@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# no idea why, but people on stack say so...
-# script /dev/null 
+function run_module {
+    module_name=$1
+    rm -f /tmp/${module_name}
+    nohup python3 ${module_name}.py > ${module_name}.out &
+}
 
+curr_dir=$(pwd)
 cd $DOOR_HOME
-rm -f /tmp/worker
-rm -f /tmp/adder
-screen -S worker -d -m python3 worker.py
-screen -S reader -d -m python3 reader.py
+
+run_module worker
+run_module reader
+
+cd curr_dir

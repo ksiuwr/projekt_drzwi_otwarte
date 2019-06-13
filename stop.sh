@@ -1,5 +1,9 @@
 #!/bin/bash
 
-cd $DOOR_HOME
-screen -X -S worker quit
-screen -X -S reader quit
+function stop_module {
+    module_name=$1
+    pkill -f ${module_name}.py
+}
+    
+stop_module worker
+stop_module reader
