@@ -48,6 +48,10 @@ Na dzisiejszym spotkaniu w dalszym ciągu rozwijajiśmy aplikację. Dodaliśmy l
 
 Dziś udało się nam skończyć MVP - nasza aplikacja umożliwia już otwieranie zamka na podstawie odczytania karty i rekordu w bazie, dodawanie nowych użytkowników i obsługę ewentualnych błędów. Popracowaliśmy nad jakością naszego kodu i zaplanowaliśmy następne spotkanie.
 
-##$ Spotkanie #11 - 06.06.2019
+### Spotkanie #11 - 06.06.2019
 
 Podczas dzisiejszego spotkania zrobiliśmy ostatnie zakupy, a także stworzyliśmy skrypt do włączania i wyłączania aplikacji.
+
+### Spotkanie #12 - 13.06.2019
+
+Na dzisiejszym spotkaniu testowo zamontowaliśmy szyld oraz dopracowaliśmy skrypt do włączania i wyłączania aplikacji.
