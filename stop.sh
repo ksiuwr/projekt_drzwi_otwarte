@@ -7,3 +7,4 @@ function stop_module {
     
 stop_module worker
 stop_module reader
+python3 ${DOOR_HOME}/Kod/close_door.py
