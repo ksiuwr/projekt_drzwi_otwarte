@@ -12,4 +12,4 @@ cd $DOOR_HOME/Kod
 run_module worker
 run_module reader
 
-cd curr_dir
+cd $curr_dir
