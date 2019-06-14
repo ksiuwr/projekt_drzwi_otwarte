@@ -58,7 +58,7 @@
     group: pi
     mode: 0644
 
-- name: Ensure .basch_aliases for user pi
+- name: Ensure .bash_aliases for user pi
   copy:
     src: home/pi/.bash_aliases
     dest: /home/pi/.bash_aliases
