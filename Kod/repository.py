@@ -29,11 +29,11 @@ class Repository:
             connection.close()
             return True
         except sqlite3.IntegrityError as e:
+            connection.rollback()
+            connection.close()
             Repository.log_message(
                 'error',
                 'sqlite3.IntegrityError: ' + str(e))
-            connection.rollback()
-            connection.close()
             return False
 
     @staticmethod

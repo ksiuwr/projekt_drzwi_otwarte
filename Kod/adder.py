@@ -20,11 +20,12 @@ def main():
         if msg['type'] == 'ack':
             print('User added')
         else:
-            print('Error: ' + msg['value'])
+            print('Error: ' + msg['message'])
+
+        conn.close()
     else:
         print("Couldn't establish connection with worker")
 
-    conn.close()
     listener.close()
 
 
