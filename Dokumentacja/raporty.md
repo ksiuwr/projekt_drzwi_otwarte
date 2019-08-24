@@ -55,3 +55,7 @@ Podczas dzisiejszego spotkania zrobiliśmy ostatnie zakupy, a także stworzyliś
 ### Spotkanie #12 - 13.06.2019
 
 Na dzisiejszym spotkaniu testowo zamontowaliśmy szyld oraz dopracowaliśmy skrypt do włączania i wyłączania aplikacji.
+
+### Spotkanie #13 - 24.08.2019
+
+Szczęśliwa 13 - to właśnie numer spotkania, na którym skończyliśmy montaż. Udało się nam przymocować zamek i pudełka z układami, dopasować profil drzwiowy do zamka, wmontować klamkę z gałką i przeprowadzić testy integracyjne. Zamek działa, ale w projekcie przyda się jeszcze kilka małych poprawek i feacherów czym zajmiemy się w przyszłości.
