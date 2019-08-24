@@ -1,5 +1,5 @@
 from multiprocessing.connection import Listener
-from typing import Optional
+from typing import Optional   # NOQA
 from repository import Repository
 from door_lock import Door
 import messenger

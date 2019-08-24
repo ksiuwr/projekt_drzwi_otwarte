@@ -1,7 +1,7 @@
-import messenger
 from time import sleep
 from py532lib.i2c import Pn532_i2c
 
+import messenger
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
