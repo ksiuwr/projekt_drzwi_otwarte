@@ -56,6 +56,24 @@ def process_add_command(value):
     return value
 
 
+def process_open_command(value):
+    # type: (str) -> None
+    try:
+        opening_time = int(value)
+    except ValueError:
+        Repository.log_message(
+            'error',
+            'Failed to open the door. {} is not an integer.'.format(value))
+
+    if 1 < opening_time < 60:
+        Door.open(opening_time)
+    else:
+        Repository.log_message(
+            'error',
+            'Failed to open the door. Opening time should be between 1 and 60.'
+            'Got {} instead'.format(value))
+
+
 def main():
     # type: () -> None
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
@@ -77,6 +95,8 @@ def main():
                 name_to_add = None
             elif command == 'add':
                 name_to_add = process_add_command(value)
+            elif command == 'open':
+                process_open_command(value)
             else:
                 Repository.log_message(
                     'error',

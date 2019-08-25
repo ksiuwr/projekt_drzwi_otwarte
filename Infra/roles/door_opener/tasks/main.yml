@@ -25,16 +25,6 @@
     name: screen
     state: present
 
-- name: Ensure vim is installed
-  apt:
-    name: vim
-    state: present
-
-- name: Ensure tig is installed
-  apt:
-    name: tig
-    state: present
-
 - name: Ensure py532lib python module is present
   pip:
     name: py532lib
