@@ -65,3 +65,10 @@
     owner: pi
     group: pi
     mode: 0644
+
+- name: Creates a cron for logs remover
+  cron:
+    name: Database logs remover
+    special_time: daily
+    user: pi
+    job: "${DOOR_HOME}/Skrypty/remove-logs.sh"
