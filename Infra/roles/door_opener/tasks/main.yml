@@ -5,24 +5,9 @@
     upgrade: 'yes'
     update_cache: 'yes'
 
-- name: Ensure i2c-tools package is present or install it
+- name: Ensure required packages are present or install them
   apt:
-    name: i2c-tools
-    state: present
-
-- name: Ensure sqlite3 is installed
-  apt:
-    name: sqlite3
-    state: present
-
-- name: Ensure libsqlite3-dev is installed
-  apt:
-    name: libsqlite3-dev
-    state: present
-
-- name: Ensure screen is installed
-  apt:
-    name: screen
+    name: i2c-tools,sqlite3,libsqlite3-dev,screen
     state: present
 
 - name: Ensure py532lib python module is present
