@@ -45,6 +45,7 @@
   synchronize:
     src: ../Kod
     dest: /home/pi/projekt_drzwi_otwarte/
+    archive: no
     rsync_opts:
       - "--exclude=*.md"
   tags: [code]
@@ -53,6 +54,7 @@
   synchronize:
     src: ../Skrypty
     dest: /home/pi/projekt_drzwi_otwarte/
+    archive: no
   tags: [code]
 
 - name: Fix ownership
