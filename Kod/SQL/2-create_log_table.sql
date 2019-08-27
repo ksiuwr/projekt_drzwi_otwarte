@@ -4,3 +4,4 @@ CREATE TABLE logs (
     message VARCHAR(150),
     timestamp DATE DEFAULT (datetime('now','localtime'))
     );
+	
