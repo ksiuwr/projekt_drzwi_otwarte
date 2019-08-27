@@ -65,12 +65,12 @@ def process_open_command(value):
             'error',
             'Failed to open the door. {} is not an integer.'.format(value))
 
-    if 1 < opening_time < 60:
+    if 1 < opening_time <= 60:
         Door.open(opening_time)
     else:
         Repository.log_message(
             'error',
-            'Failed to open the door. Opening time should be between 1 and 60.'
+            'Failed to open the door. Opening time should be from 2 to 60. '
             'Got {} instead'.format(value))
 
 

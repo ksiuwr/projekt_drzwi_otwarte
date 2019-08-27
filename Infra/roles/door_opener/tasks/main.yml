@@ -41,6 +41,28 @@
     group: pi
     mode: 0644
 
+- name: Copy the code into rasp
+  synchronize:
+    src: ../Kod
+    dest: /home/pi/projekt_drzwi_otwarte/
+    rsync_opts:
+      - "--exclude=*.md"
+  tags: [code]
+
+- name: Copy scripts into rasp
+  synchronize:
+    src: ../Skrypty
+    dest: /home/pi/projekt_drzwi_otwarte/
+  tags: [code]
+
+- name: Fix ownership
+  file:
+    path: /home/pi/projekt_drzwi_otwarte/
+    recurse: yes
+    owner: pi
+    group: pi
+  tags: [code]
+
 - name: Creates a cron for logs remover
   cron:
     name: Database logs remover
