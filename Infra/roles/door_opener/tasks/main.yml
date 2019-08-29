@@ -45,7 +45,7 @@
 - name: Copy the code into rasp
   synchronize:
     src: ../Kod
-    dest: {{ path_to_doors_code }}
+    dest: "{{ path_to_doors_code }}"
     archive: no
     recursive: yes
     checksum: yes
@@ -56,7 +56,7 @@
 - name: Copy scripts into rasp
   synchronize:
     src: ../Skrypty
-    dest: {{ path_to_doors_code }}
+    dest: "{{ path_to_doors_code }}"
     archive: no
     recursive: yes
     checksum: yes
@@ -64,7 +64,7 @@
 
 - name: Fix ownership
   file:
-    path: {{ path_to_doors_code }}
+    path: "{{ path_to_doors_code }}"
     recurse: yes
     owner: pi
     group: pi
