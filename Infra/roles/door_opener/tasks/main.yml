@@ -46,6 +46,8 @@
     src: ../Kod
     dest: /home/pi/projekt_drzwi_otwarte/
     archive: no
+    recursive: yes
+    checksum: yes
     rsync_opts:
       - "--exclude=*.md"
   tags: [code]
@@ -55,6 +57,8 @@
     src: ../Skrypty
     dest: /home/pi/projekt_drzwi_otwarte/
     archive: no
+    recursive: yes
+    checksum: yes
   tags: [code]
 
 - name: Fix ownership
