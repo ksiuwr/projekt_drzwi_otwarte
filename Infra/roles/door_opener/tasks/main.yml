@@ -41,10 +41,11 @@
     group: pi
     mode: 0644
 
+# TODO: If the code has changed we need to reload door daemon 
 - name: Copy the code into rasp
   synchronize:
     src: ../Kod
-    dest: /home/pi/projekt_drzwi_otwarte/
+    dest: {{ path_to_doors_code }}
     archive: no
     recursive: yes
     checksum: yes
@@ -55,7 +56,7 @@
 - name: Copy scripts into rasp
   synchronize:
     src: ../Skrypty
-    dest: /home/pi/projekt_drzwi_otwarte/
+    dest: {{ path_to_doors_code }}
     archive: no
     recursive: yes
     checksum: yes
@@ -63,7 +64,7 @@
 
 - name: Fix ownership
   file:
-    path: /home/pi/projekt_drzwi_otwarte/
+    path: {{ path_to_doors_code }}
     recurse: yes
     owner: pi
     group: pi
@@ -75,3 +76,17 @@
     special_time: daily
     user: pi
     job: "${DOOR_HOME}/Skrypty/remove-logs.sh"
+
+- name: Create service configuration for door daemon
+  template: 
+    src: door.service.j2 
+    dest: /lib/systemd/system/door.service 
+    mode: 644
+  notify:
+    - Reload systemctl
+
+- name: Start door daemon
+  service: 
+    name: door.service 
+    state: started 
+    enabled: yes

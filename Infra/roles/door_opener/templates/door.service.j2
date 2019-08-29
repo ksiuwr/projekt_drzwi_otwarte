@@ -1,0 +1,15 @@
+# Documentaion: https://www.freedesktop.org/software/systemd/man/systemd.service.html
+
+[Unit]
+Description=Doors daemon service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 {{ path_to_doors_code }}/Skrypty/start.sh
+ExecStop=/usr/bin/python3 {{ path_to_doors_code }}/Skrypty/stop.sh
+# ExecReload= ???
+User=pi
+
+[Install]
+WantedBy=multi-user.target
