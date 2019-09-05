@@ -1,6 +1,12 @@
 - name: Reboot rasp
   reboot:
 
-- name: Reload systemctl
+- name: Reload door reader
   systemd:
-    daemon_reload: yes
+    state: restarted
+    name: door_reader.service 
+
+- name: Reload door worker
+  systemd:
+    state: restarted
+    name: door_worker.service 

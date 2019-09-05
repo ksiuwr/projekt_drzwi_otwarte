@@ -1,0 +1,15 @@
+# Documentaion: https://www.freedesktop.org/software/systemd/man/systemd.service.html
+
+[Unit]
+Description=Doors daemon worker service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 {{ path_to_doors_code }}Kod/worker.py
+ExecStop=rm -f /tmp/worker
+User=pi
+Environment=DOOR_HOME={{ path_to_doors_code }}
+
+[Install]
+WantedBy=multi-user.target

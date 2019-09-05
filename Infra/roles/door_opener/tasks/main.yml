@@ -22,6 +22,7 @@
     owner: root
     group: netdev
     mode: 0664
+  tags: [config]
   notify:
    - Reboot rasp
 
@@ -32,6 +33,7 @@
     owner: pi
     group: pi
     mode: 0644
+  tags: [config]
 
 - name: Ensure .bash_aliases for user pi
   copy:
@@ -40,6 +42,7 @@
     owner: pi
     group: pi
     mode: 0644
+  tags: [config]
 
 # TODO: If the code has changed we need to reload door daemon 
 - name: Copy the code into rasp
@@ -51,7 +54,7 @@
     checksum: yes
     rsync_opts:
       - "--exclude=*.md"
-  tags: [code]
+  tags: [code,config]
 
 - name: Copy scripts into rasp
   synchronize:
@@ -60,7 +63,7 @@
     archive: no
     recursive: yes
     checksum: yes
-  tags: [code]
+  tags: [code,config]
 
 - name: Fix ownership
   file:
@@ -68,7 +71,7 @@
     recurse: yes
     owner: pi
     group: pi
-  tags: [code]
+  tags: [code,config]
 
 - name: Creates a cron for logs remover
   cron:
@@ -76,17 +79,37 @@
     special_time: daily
     user: pi
     job: "${DOOR_HOME}/Skrypty/remove-logs.sh"
+  tags: [config]
 
-- name: Create service configuration for door daemon
+- name: Create service configuration for door worker daemon
   template: 
-    src: door.service.j2 
-    dest: /lib/systemd/system/door.service 
+    src: door_worker.service.j2 
+    dest: /lib/systemd/system/door_worker.service 
     mode: 644
+  tags: [config]
   notify:
-    - Reload systemctl
+    - Reload door worker
 
-- name: Start door daemon
+- name: Start door worker daemon
   service: 
-    name: door.service 
+    name: door_worker.service 
     state: started 
     enabled: yes
+  tags: [config]
+
+
+- name: Create service configuration for door reader daemon
+  template: 
+    src: door_reader.service.j2 
+    dest: /lib/systemd/system/door_reader.service 
+    mode: 644
+  tags: [config]
+  notify:
+    - Reload door reader
+
+- name: Start door reader daemon
+  service: 
+    name: door_reader.service 
+    state: started 
+    enabled: yes
+  tags: [config]

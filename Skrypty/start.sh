@@ -7,9 +7,9 @@ function run_module {
 }
 
 curr_dir=$(pwd)
-cd $DOOR_HOME/Kod
+cd ${DOOR_HOME}/Kod
 
 run_module worker
 run_module reader
 
-cd $curr_dir
+cd ${curr_dir}

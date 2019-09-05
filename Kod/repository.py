@@ -2,7 +2,7 @@ import sqlite3
 
 
 class Repository:
-    DATABASE_PATH = 'doors.db'
+    DATABASE_PATH = '/home/pi/projekt_drzwi_otwarte/doors.db'
 
     @staticmethod
     def get_connection():
