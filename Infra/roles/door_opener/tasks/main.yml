@@ -90,7 +90,7 @@
   template: 
     src: door_worker.service.j2 
     dest: /lib/systemd/system/door_worker.service 
-    mode: 644
+    mode: '0644'
   tags: [config]
   notify:
     - Reload door worker
@@ -107,7 +107,7 @@
   template: 
     src: door_reader.service.j2 
     dest: /lib/systemd/system/door_reader.service 
-    mode: 644
+    mode: '0644'
   tags: [config]
   notify:
     - Reload door reader

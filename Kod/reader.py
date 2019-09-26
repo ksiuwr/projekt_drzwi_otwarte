@@ -5,7 +5,7 @@ import messenger
 
 START_OF_SERIAL = 14
 SERIAL_LENGTH = 8
-READ_INTERVAL = 3
+READ_INTERVAL = 7
 
 
 def get_serial(byte_array):
