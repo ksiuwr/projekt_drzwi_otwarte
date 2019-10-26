@@ -4,6 +4,7 @@
   group: 
     name: remote_access 
     state: present
+  tags: [users]
 
 - name: Add users
   user: 
@@ -14,12 +15,14 @@
     comment: "{{ item.fullname }}" 
     password: "{{ item.password }}"
   with_items: "{{ users }}"
+  tags: [users]
 
 - name: Setup authorized keys for users
   authorized_key: 
     user: "{{ item.login }}" 
     key: "{{ item.pubkey }}"
   with_items: "{{ users }}"
+  tags: [users]
 
 - name: Install sshd_banner
   template: 
@@ -29,6 +32,7 @@
     owner: root 
     group: root
   when: banner is defined
+  tags: [users]
 
 - name: Install sshd_config
   template: 
@@ -39,6 +43,7 @@
     group: "root"
   notify:
   - restart sshd
+  tags: [users]
 
 - name: Allow sudo_group group to have passwordless sudo
   lineinfile:
@@ -47,3 +52,4 @@
     regexp: "^%sudo"
     line: "%sudo ALL=(ALL) NOPASSWD: ALL"
     validate: '/usr/sbin/visudo -cf %s'
+  tags: [users]
