@@ -1,3 +1,9 @@
+'''
+To jest PoC rozwiązania. Pierwszy plik jaki powstał w projekcie. Nie jest
+on używany, ale może posłużyć m.in. do prostego testowania układu przed
+wdrożeniem pełnego rozwiązania.
+'''
+
 from time import sleep
 
 from py532lib.i2c import Pn532_i2c
