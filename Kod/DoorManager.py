@@ -1,15 +1,19 @@
 from threading import Thread, Event
 import time
-import DoorController
+import DoorIO
 
 
-class DoorState(Thread):
+class DoorManager(Thread):
     """This thread will manage the door lock state"""
-    def __init__(self, controller=DoorController.Auto, unlockTime=8.0):
-        self.doorController = controller()
-        self.waitForChild = self.doorController.needsCleanup()
+    def __init__(self, io=DoorIO.Auto, unlockTime=8.0):
+        self.io = io()
+        self.waitForChild = self.io.needsCleanup()
+        name = "%s for %s.%s" % (
+            type(self).__name__,
+            io.__module__, io.__name__
+        )
         super().__init__(
-            name="GlobalLock",
+            name=name,
             target=self,
             daemon=not self.waitForChild
         )
@@ -22,13 +26,13 @@ class DoorState(Thread):
         while self.running:
             gotEvent = self.unlockEvent.wait(timeout=0.1)
             if gotEvent:
-                self.doorController.unlock()
+                self.io.unlock()
                 while self.unlockEvent.isSet():
                     # unless another event comes in,
                     # this loop will only execute once
                     self.unlockEvent.clear()
                     time.sleep(self.unlockTime)
-                self.doorController.lock()
+                self.io.lock()
 
     def unlock(self):
         self.unlockEvent.set()
@@ -37,4 +41,4 @@ class DoorState(Thread):
         self.running = False
 
     def isUnlocked(self):
-        return self.doorController.isUnlocked()
+        return self.io.isUnlocked()

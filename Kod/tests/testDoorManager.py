@@ -1,12 +1,12 @@
 import unittest
 import time
-import DoorController
-from DoorState import DoorState
+import DoorIO
+from DoorManager import DoorManager
 
 
-class TestDoorState(unittest.TestCase):
+class TestDoorManager(unittest.TestCase):
     def test_unlock_once(self):
-        state = DoorState(DoorController.Base)
+        state = DoorManager(DoorIO.Base)
         state.start()
         state.unlock()
         time.sleep(0.05)
@@ -14,7 +14,7 @@ class TestDoorState(unittest.TestCase):
         state.stop()
 
     def test_lock(self):
-        state = DoorState(DoorController.Base, unlockTime=0.1)
+        state = DoorManager(DoorIO.Base, unlockTime=0.1)
         state.start()
         state.unlock()
         time.sleep(0.2)
@@ -22,7 +22,7 @@ class TestDoorState(unittest.TestCase):
         state.stop()
 
     def test_multiple(self):
-        state = DoorState(DoorController.Base, unlockTime=0.3)
+        state = DoorManager(DoorIO.Base, unlockTime=0.3)
         state.start()
         state.unlock()
         time.sleep(0.2)

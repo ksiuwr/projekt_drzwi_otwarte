@@ -1,6 +1,7 @@
 class Base:
     def __init__(self):
-        self.unlocked = False
+        # Lock the door on system startup.
+        self.lock()
 
     def unlock(self):
         self.unlocked = True
@@ -35,9 +36,9 @@ try:
         LOCK_PIN = 18
 
         def __init__(self):
-            super().__init__()
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(RPi.LOCK_PIN, GPIO.OUT)
+            super().__init__()
 
         def stateChanged(self):
             if self.unlocked:
@@ -55,6 +56,6 @@ try:
         pass
 
 except ImportError:
-    # Not running on RPi, so DoorController.RPi is unavailable
+    # Not running on RPi, so DoorIO.RPi is unavailable
     class Auto(Debug):
         pass

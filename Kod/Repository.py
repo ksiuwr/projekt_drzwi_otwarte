@@ -1,9 +1,17 @@
 import sqlite3
+import os
+import subprocess
 
 
 class Repository:
     def __init__(self, path):
         self.path = path
+        if not os.path.exists(path) or os.path.getsize(path) == 0:
+            here = os.path.dirname(__file__)
+            sql1 = here + "/SQL/1-create_basic_table.sql"
+            sql2 = here + "/SQL/2-create_log_table.sql"
+            subprocess.run(["sh", "-c", "sqlite3 %s < %s" % (path, sql1)])
+            subprocess.run(["sh", "-c", "sqlite3 %s < %s" % (path, sql2)])
         self.db = sqlite3.connect(path)
 
     def add_card(self, name, serial):
