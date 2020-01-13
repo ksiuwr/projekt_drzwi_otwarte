@@ -29,3 +29,12 @@
       groups:
         - remote_access
         - sudo
+
+    - login: dawid
+      fullname: 'Dawid'
+      password: ''
+      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8EqXpv+dxJm5/HrAblA1LBdPPH443Zr+0STSCzglwd8G5zb935SIyXelMWrd3lJwwSTg+SPYZdhj5Fau3RYOX8evKYdSZMKRw4OXMbjC+afqCGg5nLIGHGvvG0/xY2aFEC0ACfHUItY6YRL3F8Jm6hqhUJU/aJjcLQ8kjo1wbQ3QztdUex8uQ1RbD8EltJd7eVvFVO/ByTepYy0qvD0w/LmNgrx6o0imAMBQ95wlr+Dlo5o1HZG5oh9aODUkJlSpCMJXjHhFc/gA8Xg30s80lL5hV3zOzKS0qZdvew9/qFVOCv+pceCcBRuCb1KX4Qq2fsKhSkkGZ8EigxiWKyCZL'
+      groups:
+        - remote_access
+        - sudo
+
