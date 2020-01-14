@@ -5,6 +5,7 @@ import DoorIO
 
 class DoorManager(Thread):
     """This thread will manage the door lock state"""
+
     def __init__(self, io=DoorIO.Auto, unlockTime=8.0):
         self.io = io()
         self.waitForChild = self.io.needsCleanup()
@@ -18,24 +19,21 @@ class DoorManager(Thread):
             daemon=not self.waitForChild
         )
         self.running = True
-        self.unlockEvent = Event()
+        self.lastUnlockRequestTime = None
         self.unlockTime = unlockTime
 
     def run(self):
         """Don't run this directly, use start() instead"""
         while self.running:
-            gotEvent = self.unlockEvent.wait(timeout=0.1)
-            if gotEvent:
-                self.io.unlock()
-                while self.unlockEvent.isSet():
-                    # unless another event comes in,
-                    # this loop will only execute once
-                    self.unlockEvent.clear()
-                    time.sleep(self.unlockTime)
-                self.io.lock()
+            if self.lastUnlockRequestTime is not None:
+                if time.time() - self.lastUnlockRequestTime > self.unlockTime:
+                    self.io.lock()
+                else:
+                    self.io.unlock()
+            time.sleep(0.1)
 
     def unlock(self):
-        self.unlockEvent.set()
+        self.lastUnlockRequestTime = time.time()
 
     def stop(self):
         self.running = False

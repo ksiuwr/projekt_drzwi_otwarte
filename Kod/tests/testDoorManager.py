@@ -9,7 +9,7 @@ class TestDoorManager(unittest.TestCase):
         state = DoorManager(DoorIO.Base)
         state.start()
         state.unlock()
-        time.sleep(0.05)
+        time.sleep(0.2)
         self.assertEqual(state.isUnlocked(), True)
         state.stop()
 
@@ -17,7 +17,7 @@ class TestDoorManager(unittest.TestCase):
         state = DoorManager(DoorIO.Base, unlockTime=0.1)
         state.start()
         state.unlock()
-        time.sleep(0.2)
+        time.sleep(0.3)
         self.assertEqual(state.isUnlocked(), False)
         state.stop()
 
