@@ -17,7 +17,7 @@ Zdefiniowane są następujące tagi:
 
 | Tag      | Czynność                                                                                        |
 |----------|-------------------------------------------------------------------------------------------------|
-| users    | Konfiguruje użytkowników mająchych zdalny dostęp do Raspa (po ssh)                              |
-| packages | Instaluje wymagana pakiety (apt i pip) oraz aktualizuje wszystki zainstalowane pakiety (apt)    |
-| config   | Wgrywa całą konfigurację systmową potrzebną do prawidłowego działania zamka, w tym kopiuje kod  |
+| users    | Konfiguruje użytkowników mających zdalny dostęp do Raspa (po ssh)                               |
+| packages | Instaluje wymagana pakiety (apt i pip) oraz aktualizuje wszystkie zainstalowane pakiety (apt)   |
+| config   | Wgrywa całą konfigurację systemową potrzebną do prawidłowego działania zamka, w tym kopiuje kod |
 | code     | Wrzuca nową wersję kodu oraz skryptów                                                           |

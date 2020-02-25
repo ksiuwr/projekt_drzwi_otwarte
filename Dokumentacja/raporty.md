@@ -10,7 +10,7 @@ Rozpisaliśmy i omówiliśmy dokładnie tematy związane z:
 * Wydrukiem puszek (druk 3D)
 * Złożeniem układu
 
-A także skonfigurowaliśmy tablicę na trello i przepisaliśmy omówione taski do niej (z podziałem na w/w kategorie)
+A także skonfigurowaliśmy tablicę na Trello i przepisaliśmy omówione zadania do niej (z podziałem na w/w kategorie)
 
 ### Spotkanie #2 - 19.03.2019
 
@@ -34,7 +34,7 @@ Dziś podłączyliśmy zamek do Raspa tworząc jednocześnie działający układ
 
 ### Spotkanie #7 - 09.05.2019
 
-Dzisiaj zajęliśmy się oprogramowaniem: ustaliliśmy architekturę całego systemu (3 procesy komunikujące się z sobą) i zaimplementowaliśmy skrypt realizujący nadawanie praw do otwierania drzwi dla nowej osoby. Dodatkowo rozszerzyliśmy bazę danych o informacje kiedy ostatnio dany użytkownik otwierał drzwi.
+Dzisiaj zajęliśmy się oprogramowaniem: ustaliliśmy architekturę całego systemu (3 procesy komunikujące się z sobą) i zaimplementowaliśmy skrypt realizujący nadawanie praw do otwierania drzwi dla nowej osoby. Dodatkowo rozszerzyliśmy bazę danych o informacje kiedy ostatnio dany użytkownik otwierał drzwi.
 
 ### Spotkanie #8 - 18.05.2019
 
@@ -42,7 +42,7 @@ Dzisiejsze spotkanie miało charakter informacyjno-dyskusyjny. Omówiliśmy aktu
 
 ### Spotkanie #9 - 21.05.2019
 
-Na dzisiejszym spotkaniu w dalszym ciągu rozwijajiśmy aplikację. Dodaliśmy logowanie błędów, powydzielaliśmy moduły i zmieniliśmy sockety na unixowe. Pomęczyliśmy się z flake8, naprawiliśmy kilka błędów i zaplanowaliśmy dalszą pracę.
+Na dzisiejszym spotkaniu w dalszym ciągu rozwijaliśmy aplikację. Dodaliśmy logowanie błędów, powydzielaliśmy moduły i zmieniliśmy sockety na unixowe. Pomęczyliśmy się z flake8, naprawiliśmy kilka błędów i zaplanowaliśmy dalszą pracę.
 
 ### Spotkanie #10 - 30.05.2019
 
@@ -58,4 +58,4 @@ Na dzisiejszym spotkaniu testowo zamontowaliśmy szyld oraz dopracowaliśmy skry
 
 ### Spotkanie #13 - 24.08.2019
 
-Szczęśliwa 13 - to właśnie numer spotkania, na którym skończyliśmy montaż. Udało się nam przymocować zamek i pudełka z układami, dopasować profil drzwiowy do zamka, wmontować klamkę z gałką i przeprowadzić testy integracyjne. Zamek działa, ale w projekcie przyda się jeszcze kilka małych poprawek i feacherów czym zajmiemy się w przyszłości.
+Szczęśliwa 13 - to właśnie numer spotkania, na którym skończyliśmy montaż. Udało się nam przymocować zamek i pudełka z układami, dopasować profil drzwiowy do zamka, wmontować klamkę z gałką i przeprowadzić testy integracyjne. Zamek działa, ale w projekcie przyda się jeszcze kilka małych poprawek i ficzerów, czym zajmiemy się w przyszłości.
