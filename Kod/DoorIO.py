@@ -55,7 +55,7 @@ try:
     class Auto(RPi):
         pass
 
-except ImportError:
+except Exception:
     # Not running on RPi, so DoorIO.RPi is unavailable
     class Auto(Debug):
         pass
