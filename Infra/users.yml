@@ -38,3 +38,10 @@
         - remote_access
         - sudo
 
+    - login: pzmarzly
+      fullname: "pzmarzly"
+      password: ""
+      pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVEkBJoRXqNXXBX8yKgXO5fouX/N+C3CVzGMSJpNoSRq4USzvHiY5PZjrl8E2lquXayc+Qbu6naVn6VkI3tImWCzVaMxrpu0+2GLzdPIlzgXhF1078lJ4TY8gsdyD6nRhEdzcbMkGDgelyYqbM7tP9gEorS1CsfyrKe04uDfmqOjftHx+6fEFU28NNfe4o04312w25uhT8sM9vvu5v6YxWpXzPJISE+BYE9xNCVTYeOSUbQun4LYia47Ue0uxdG9kqkkTMDdwWtPKOpfbnaj8zVAqoMI5NN+rikRrNzavakpN0xbz8/VGAl85mA9HV0qe7zhxnPYttucd2sfqjA00p"
+      groups:
+        - remote_access
+        - sudo
