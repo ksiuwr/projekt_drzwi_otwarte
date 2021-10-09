@@ -11,7 +11,7 @@
     vars:
       banner:
         logo: "{{ lookup('file', 'anime_girl.txt') }}"
-        message: "> Join us at ksi@cs.uni.wroc.pl !"
+        message: "> Join us at https://discord.gg/5xgVSkwaaj !"
 
   - include_role:
       name: door_opener
