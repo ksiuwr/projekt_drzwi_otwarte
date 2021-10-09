@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+flask-httpauth = "*"
+"RPi.GPIO" = "*"
+
+# py532lib does not have any stable release yet.
+py532lib = "==2018.6.14.dev1"
+
+[requires]
+python_version = "3.7"
