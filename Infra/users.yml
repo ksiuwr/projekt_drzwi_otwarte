@@ -45,3 +45,13 @@
       groups:
         - remote_access
         - sudo
+        
+    - login: mwitkowski
+      fullname: "Maciej"
+      password: ""
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBrel8lMiS9h902pey0u3FiRagko3VWbdbX7oMA2tl6 321768@uwr.edu.pl"
+      groups:
+        - remote_access
+        - sudo
+        
+        
