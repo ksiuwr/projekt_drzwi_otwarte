@@ -1,6 +1,7 @@
 from multiprocessing.connection import Listener
 from repository import Repository
 from door_lock import Door
+from buzzer import Buzzer
 import messenger
 
 from typing import Optional
@@ -32,22 +33,24 @@ def process_read_command(
             Repository.log_message(
                 'add',
                 '{} ({})'.format(card_serial, username_to_add))
+            Buzzer.buzz()
         else:
             Repository.log_message(
                 'error',
                 'Failed to add card: {}'.format(card_serial))
 
-        return None
+        return
 
     if not Repository.is_authorized(card_serial):
         Repository.log_message('reject', str(card_serial))
-        return None
+        Buzzer.buzz()
+        return
 
     Repository.log_message(
         'open',
         '{} ({})'.format(card_serial, Repository.get_name(card_serial)))
     Door.open()
-    return None
+    return
 
 
 def process_add_command(value: str) -> str:
@@ -75,6 +78,7 @@ def main() -> None:
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
     try:
         Door.initialize()
+        Buzzer.initialize()
         name_to_add = None
         print('Worker started')
         while True:
@@ -100,6 +104,7 @@ def main() -> None:
 
     finally:
         Door.cleanup()
+        Buzzer.cleanup()
         listener.close()
 
 
