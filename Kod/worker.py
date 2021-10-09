@@ -1,9 +1,9 @@
 from multiprocessing.connection import Listener
-from typing import Optional   # NOQA
 from repository import Repository
 from door_lock import Door
 import messenger
 
+from typing import Optional
 
 WORKER_SOCKET_NAME = '/tmp/worker'
 ADDER_SOCKET_NAME = '/tmp/adder'
@@ -12,8 +12,7 @@ ACK = 'ack'
 ERROR = 'error'
 
 
-def respond_adder(success, username, card_serial):
-    # type (bool, str, str) -> None
+def respond_adder(success: bool, username: str, card_serial: str) -> None:
     message = {
         'type': ACK if success else ERROR,
         'message': '{} ({})'.format(card_serial, username)
@@ -22,8 +21,8 @@ def respond_adder(success, username, card_serial):
     messenger.send(ADDER_SOCKET_NAME, message)
 
 
-def process_read_command(card_serial, username_to_add):
-    # type: (str, Optional[str]) -> None
+def process_read_command(
+        card_serial: str, username_to_add: Optional[str]) -> None:
     Repository.update_last_used(card_serial)
 
     if username_to_add:
@@ -51,13 +50,11 @@ def process_read_command(card_serial, username_to_add):
     return None
 
 
-def process_add_command(value):
-    # type: (str) -> str
+def process_add_command(value: str) -> str:
     return value
 
 
-def process_open_command(value):
-    # type: (str) -> None
+def process_open_command(value: str) -> None:
     try:
         opening_time = int(value)
     except ValueError:
@@ -74,8 +71,7 @@ def process_open_command(value):
             'Got {} instead'.format(value))
 
 
-def main():
-    # type: () -> None
+def main() -> None:
     listener = Listener(WORKER_SOCKET_NAME, 'AF_UNIX')
     try:
         Door.initialize()

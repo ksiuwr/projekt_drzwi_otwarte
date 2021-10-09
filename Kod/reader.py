@@ -8,14 +8,12 @@ SERIAL_LENGTH = 8
 READ_INTERVAL = 7
 
 
-def get_serial(byte_array):
-    # type: (bytearray) -> str
+def get_serial(byte_array: bytearray) -> str:
     hex_data = bytes(byte_array).hex()
     return hex_data[START_OF_SERIAL:START_OF_SERIAL+SERIAL_LENGTH]
 
 
-def main():
-    # type: () -> None
+def main() -> None:
     pn532 = Pn532_i2c()
     pn532.SAMconfigure()
 

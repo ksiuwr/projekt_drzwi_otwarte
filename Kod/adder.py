@@ -3,7 +3,7 @@ import sys
 import messenger
 
 
-def main():
+def main() -> None:
     listener = Listener('/tmp/adder', 'AF_UNIX')
 
     if len(sys.argv) == 1:

@@ -5,13 +5,11 @@ class Repository:
     DATABASE_PATH = '/home/pi/projekt_drzwi_otwarte/doors.db'
 
     @staticmethod
-    def get_connection():
-        # type: () -> sqlite3.Connection
+    def get_connection() -> sqlite3.Connection:
         return sqlite3.connect(Repository.DATABASE_PATH)
 
     @staticmethod
-    def add_card(name, serial):
-        # type: (str, str) -> bool
+    def add_card(name: str, serial: str) -> bool:
         query = '''
             INSERT INTO registeredCards(name, serial)
             VALUES (:name,:serial)
@@ -37,8 +35,7 @@ class Repository:
             return False
 
     @staticmethod
-    def is_authorized(serial):
-        # type: (str) -> bool
+    def is_authorized(serial: str) -> bool:
         query = '''
             SELECT count(*)
             FROM registeredCards
@@ -55,11 +52,10 @@ class Repository:
         count_of_serials = cursor.fetchone()
         connection.close()
 
-        return count_of_serials[0] == 1
+        return bool(count_of_serials[0] == 1)
 
     @staticmethod
-    def update_last_used(serial):
-        # type: (str) -> bool
+    def update_last_used(serial: str) -> bool:
         query = '''
             UPDATE registeredCards
             SET last_used = datetime('now','localtime')
@@ -79,8 +75,7 @@ class Repository:
         return True
 
     @staticmethod
-    def log_message(msg_type, message):
-        # type: (str, str) -> bool
+    def log_message(msg_type: str, message: str) -> bool:
         types = ['add', 'open', 'reject', 'error']
 
         query = '''
@@ -101,8 +96,7 @@ class Repository:
         return True
 
     @staticmethod
-    def get_name(serial):
-        # type: (str) -> str
+    def get_name(serial: str) -> str:
         query = '''
             SELECT name
             FROM registeredCards
@@ -119,4 +113,4 @@ class Repository:
         name = cursor.fetchone()
         connection.close()
 
-        return name[0]
+        return str(name[0])
