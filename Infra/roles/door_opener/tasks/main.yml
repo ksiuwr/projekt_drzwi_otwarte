@@ -49,7 +49,6 @@
     mode: 0644
   tags: [config]
 
-# TODO: If the code has changed we need to reload door daemon 
 - name: Copy the code into rasp
   synchronize:
     src: ../Kod
@@ -60,6 +59,9 @@
     rsync_opts:
       - "--exclude=*.md"
   tags: [code,config]
+  notify:
+    - Reload door reader
+    - Reload door worker
 
 - name: Copy scripts into rasp
   synchronize:
@@ -87,34 +89,34 @@
   tags: [config]
 
 - name: Create service configuration for door worker daemon
-  template: 
-    src: door_worker.service.j2 
-    dest: /lib/systemd/system/door_worker.service 
+  template:
+    src: door_worker.service.j2
+    dest: /lib/systemd/system/door_worker.service
     mode: '0644'
   tags: [config]
   notify:
     - Reload door worker
 
 - name: Start door worker daemon
-  service: 
-    name: door_worker.service 
-    state: started 
+  service:
+    name: door_worker.service
+    state: started
     enabled: yes
   tags: [config]
 
 
 - name: Create service configuration for door reader daemon
-  template: 
-    src: door_reader.service.j2 
-    dest: /lib/systemd/system/door_reader.service 
+  template:
+    src: door_reader.service.j2
+    dest: /lib/systemd/system/door_reader.service
     mode: '0644'
   tags: [config]
   notify:
     - Reload door reader
 
 - name: Start door reader daemon
-  service: 
-    name: door_reader.service 
-    state: started 
+  service:
+    name: door_reader.service
+    state: started
     enabled: yes
   tags: [config]

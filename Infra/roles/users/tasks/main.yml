@@ -1,45 +1,44 @@
 ---
 # tasks file for users
 - name: Create remote_access group
-  group: 
-    name: remote_access 
+  group:
+    name: remote_access
     state: present
   tags: [users]
 
 - name: Add users
-  user: 
+  user:
     name: "{{ item.login }}"
     groups: "users{% if 'groups' in item %},{{ item.groups|join(',') }}{% endif %}"
-    shell: "/bin/bash" 
-    append: yes 
-    comment: "{{ item.fullname }}" 
-    password: "{{ item.password }}"
+    shell: "/bin/bash"
+    append: yes
+    comment: "{{ item.fullname }}"
   with_items: "{{ users }}"
   tags: [users]
 
 - name: Setup authorized keys for users
-  authorized_key: 
-    user: "{{ item.login }}" 
+  authorized_key:
+    user: "{{ item.login }}"
     key: "{{ item.pubkey }}"
   with_items: "{{ users }}"
   tags: [users]
 
 - name: Install sshd_banner
-  template: 
-    src: etc/ssh/sshd_banner 
-    dest: /etc/ssh/sshd_banner 
-    mode: 0644 
-    owner: root 
+  template:
+    src: etc/ssh/sshd_banner
+    dest: /etc/ssh/sshd_banner
+    mode: 0644
+    owner: root
     group: root
   when: banner is defined
   tags: [users]
 
 - name: Install sshd_config
-  template: 
-    src: "etc/ssh/sshd_config" 
-    dest: "/etc/ssh/sshd_config" 
-    mode: "0644" 
-    owner: "root" 
+  template:
+    src: "etc/ssh/sshd_config"
+    dest: "/etc/ssh/sshd_config"
+    mode: "0644"
+    owner: "root"
     group: "root"
   notify:
   - restart sshd

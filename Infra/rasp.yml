@@ -1,12 +1,20 @@
 - hosts: all
   become: yes
-  vars_files:
-    - users.yml
-  vars:
-    path_to_doors_code: "/home/pi/projekt_drzwi_otwarte/"
-    banner:
-      logo: "{{ lookup('file', 'anime_girl.txt') }}"
-      # message: "Some message"
-  roles:
-    - users
-    - door_opener
+
+  tasks:
+  - include_vars:
+      file: users.yml
+
+  - include_role:
+      name: users
+    tags: [users]
+    vars:
+      banner:
+        logo: "{{ lookup('file', 'anime_girl.txt') }}"
+        message: "> Join us at ksi@cs.uni.wroc.pl !"
+
+  - include_role:
+      name: door_opener
+    tags: [code, config, packages]
+    vars:
+      path_to_doors_code: "/home/pi/projekt_drzwi_otwarte/"
