@@ -33,7 +33,7 @@ def process_read_command(
             Repository.log_message(
                 'add',
                 '{} ({})'.format(card_serial, username_to_add))
-            Buzzer.buzz()
+            Buzzer.buzz(3)
         else:
             Repository.log_message(
                 'error',
@@ -43,7 +43,7 @@ def process_read_command(
 
     if not Repository.is_authorized(card_serial):
         Repository.log_message('reject', str(card_serial))
-        Buzzer.buzz()
+        Buzzer.buzz(0.5, 3)
         return
 
     Repository.log_message(
