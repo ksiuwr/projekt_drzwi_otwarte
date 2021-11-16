@@ -48,3 +48,11 @@
       groups:
         - remote_access
         - sudo
+        
+     - login: mwitkowski_iphone
+      fullname: "Maciej iPhone"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbr2O3u+TQbbMxWybb+rNiCne2M+2OWohWtV2h9gcbr Skróty (iPhone)"
+      groups:
+        - remote_access
+        - sudo
+       
