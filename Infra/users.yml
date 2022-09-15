@@ -50,8 +50,8 @@
         - sudo
 
     - login: pkaras_iphone
-       fullname: "Paweł Karaś iPhone"
-       pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC60IFZqM4lcZNVPRr+HoJJaiJh9lpOCzD1t5nar7goV Shortcuts on iPhone"
-       groups:
-         - remote_access
-         - sudo
+      fullname: "Paweł Karaś iPhone"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC60IFZqM4lcZNVPRr+HoJJaiJh9lpOCzD1t5nar7goV Shortcuts on iPhone"
+      groups:
+        - remote_access
+        - sudo
