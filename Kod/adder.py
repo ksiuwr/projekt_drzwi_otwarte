@@ -1,5 +1,6 @@
-from multiprocessing.connection import Listener
+import re
 import sys
+from multiprocessing.connection import Listener
 import messenger
 
 
@@ -11,6 +12,15 @@ def main() -> None:
         name = input('>')
     else:
         name = ' '.join(sys.argv[1:])
+
+    while (re.match(r'\w+(?:\s\w+)+', name) is None or
+           not all([w[0].isupper() for w in name.split()])):
+        print(
+            f"Wrong username pattern for {name}. "
+            f"Expected format: 'Name Surname'\n")
+        print('Enter new users name')
+        name = input('>')
+
     if messenger.send('/tmp/worker', {'type': 'add', 'value': name}):
         print('Now read a card with reader')
 
