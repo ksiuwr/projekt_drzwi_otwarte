@@ -55,3 +55,17 @@
       groups:
         - remote_access
         - sudo
+
+    - login: barnij
+      fullname: "barnij"
+      pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFkB7cyafeuuRvbeCYTgTCTw4eFaiYpLjiZLlr7YW18M68KdBIgFV/gbBWEkqjQC0BsfN9wbt1yzy9Bl4TlzIYGySXiTAAOIdZ21CnaFN5E1Rrs6BTneV2DYRJSANXRfI2jAHz9+VlyuZ5sbP9BYMOhzGHRtvUSt/bb4gbqyd0Hz50qgKvFA9aqaRJSFIJ5puYa1+ZJLCsmhfih0lxGtLA+i9qM9LEdLI6unGfw5oFq4ySHo2NefmYbhHd/79tUWoW3RGAuZ/h03JwHEvphXNfLnsykLeN3Fqer8TRYmau4HbTfPmwYt/C8HO7NcdGl26rlY0ll9e8pm+gQDAjuSzh barni@LAPTOP-7HESBJC3"
+      groups:
+        - remote_access
+        - sudo
+
+    - login: barnij_termux
+      fullname: "barnij termux"
+      pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDnsow8d/mntffJPswDyyMMe1NAGmK+S0s+w8LdG+X3oRVx0TMv8AHie7HYhTn0ia0DZfFKPcES11DEQUxyxuitGloyl+u4V+T1Sg6tFNYcwXlBZfruKnNI205vLPxGN65EUP3+3zsTYN5Kr9PuZya4gvBsXRX2ayducqUleKMdNQ== u0_a577@localhost"
+      groups:
+        - remote_access
+        - sudo
