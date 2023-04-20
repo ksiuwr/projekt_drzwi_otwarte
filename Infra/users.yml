@@ -7,20 +7,6 @@
         - remote_access
         - sudo
 
-    - login: wiktor
-      fullname: 'Wiktor'
-      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9IzmfKjxG7+5r6+/U4fLl0KXOe/LdlaiG1BF/b9H/uld22gIc+RuVV2AgQQ7vmZXDsANyQCgsEVKX/IhY4IwqqT+vNSLziM691vB8QYXKwSNc/tw4IOOJHRHqQrHfZ4ZfLaKQf++aH+g68y4li4VRcxMQA/vA9u9wB5V5UosWYV6BdXvCcBG1AY2VrBuu9gc/3BSTQxmBbrgn0S9OQklixgsxT8RBU1Aq8W2qIOUv4qkaMmAOr7Z44zutqFB1CMkgX70UyIeEHjZCNHvD7RRCnjFd4SjqnHK1hib8hN/Rg9VudkEvTMmkExIZ/chGxAy3O6eGOY/qHMRQCzuNIyfv'
-      groups:
-        - remote_access
-        - sudo
-
-    - login: wpedrak
-      fullname: 'Wojtek'
-      pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYRtdhCNyQyy3hTQHb4fXfh1tK+ESRlpgCYbZTqrs1q4HhiqS6kB2n8Ot11vk1KDXaeglA+5QqnAZpzJoxxuQAURkTPuh0r5UyaibiZ03iFkLXTe8qnD3HGjSFRnHLMWFvH2M5RXzhjfHNg9ayUNoWMCcBYxeIjPmZeGgFUJZ5h5qi2X9w5j+5Gvng39kGYvX89XHECRWxIp5/QtwqXY/7SbkYjARmvxzASU80XS8ckIPfguTihVbV62/hVUyrkKB2atdAlSpd50hVrtXHwoc5p6UZJAUjiZIaTFJWE5pBZDhqzLB0Fpe45MHSCtBio2ZzWlXEC9H6JMarOEnTJABn'
-      groups:
-        - remote_access
-        - sudo
-
     - login: arsenic
       fullname: 'ArsenicRose'
       pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4fPlIGtHngh8xQhKzJYuPgqzvK22rOCauUCOXWpXPkaH5jZpNgR/5VXbpFRCPXLNMKR4UeJ1YHmSJiAAVtqYtH9iP2Nd6fl6/l84fDVR++HXwIW38acLNyxan/inAVCR7/dYzemztDpnUNxLt3lhMPTg5JA+oXOf/IBg48gs8zfgXl7+E6dWLtumvpuGZZEtgvl5Fuv8GQUFV4Ddra+x4zGo0uahXVETVbrzqDxXdRr95giDC5QTFOlLX1nGnsGIQvu/xBrmUmR44mK2DBG3W/FJ/om3E1ISdpQDnIY9zhExeon0/CDrkwYx4qZyBHMEpmspkiZ2bFlAdSQiBfW9t'
@@ -28,23 +14,9 @@
         - remote_access
         - sudo
 
-    - login: dawid
-      fullname: 'Dawid'
-      pubkey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGWUljFqNISWbWvQ995meOQyiSwhzL39vghkb1v1wUq dawiddudekstg@gmail.com'
-      groups:
-        - remote_access
-        - sudo
-
     - login: pzmarzly
       fullname: "pzmarzly"
       pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVEkBJoRXqNXXBX8yKgXO5fouX/N+C3CVzGMSJpNoSRq4USzvHiY5PZjrl8E2lquXayc+Qbu6naVn6VkI3tImWCzVaMxrpu0+2GLzdPIlzgXhF1078lJ4TY8gsdyD6nRhEdzcbMkGDgelyYqbM7tP9gEorS1CsfyrKe04uDfmqOjftHx+6fEFU28NNfe4o04312w25uhT8sM9vvu5v6YxWpXzPJISE+BYE9xNCVTYeOSUbQun4LYia47Ue0uxdG9kqkkTMDdwWtPKOpfbnaj8zVAqoMI5NN+rikRrNzavakpN0xbz8/VGAl85mA9HV0qe7zhxnPYttucd2sfqjA00p"
-      groups:
-        - remote_access
-        - sudo
-
-    - login: mwitkowski
-      fullname: "Maciej"
-      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBrel8lMiS9h902pey0u3FiRagko3VWbdbX7oMA2tl6 321768@uwr.edu.pl"
       groups:
         - remote_access
         - sudo
