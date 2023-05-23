@@ -23,7 +23,7 @@
 
     - login: pkaras_iphone
       fullname: "Paweł Karaś iPhone"
-      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC60IFZqM4lcZNVPRr+HoJJaiJh9lpOCzD1t5nar7goV Shortcuts on iPhone"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4i3QYC6YJAl/tMtgVtwqIAcL7QxfOK3KHOwI7sZoPJ Shortcuts on Phoenix iPhone"
       groups:
         - remote_access
         - sudo
