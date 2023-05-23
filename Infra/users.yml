@@ -21,7 +21,7 @@
         - remote_access
         - sudo
 
-    - login: pkaras_iphone
+    - login: pkaras_iphone_13_mini
       fullname: "Paweł Karaś iPhone 13 mini"
       pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4i3QYC6YJAl/tMtgVtwqIAcL7QxfOK3KHOwI7sZoPJ Shortcuts on Phoenix iPhone"
       groups:
