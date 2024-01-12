@@ -48,3 +48,31 @@
       groups:
         - remote_access
         - sudo
+
+    - login: arturbieniek
+      fullname: "Artur Bieniek"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINBQwKGlb+Q50DWbh2+yyd2OkG0PR8MSMe5+dTtXh9L0"
+      groups:
+        - remote_access
+        - sudo
+
+    - login: arturbieniek
+      fullname: "Artur Bieniek"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINBQwKGlb+Q50DWbh2+yyd2OkG0PR8MSMe5+dTtXh9L0"
+      groups:
+        - remote_access
+        - sudo
+
+    - login: piotro
+      fullname: "Piotr Węgrzyn"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDdstEA5BmPJxS0AR+iQAfRACfvfO8j8hP/2PiRZ+nR"
+      groups:
+        - remote_access
+        - sudo
+
+    - login: mpnogaj
+      fullname: "Marcin Nogaj"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm8+SvbDAaTb2v438pz/etiflc8fZU6t6LYRl0gj0Uv"
+      groups:
+        - remote_access
+        - sudo
