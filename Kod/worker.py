@@ -49,6 +49,7 @@ def process_read_command(
     Repository.log_message(
         'open',
         '{} ({})'.format(card_serial, Repository.get_name(card_serial)))
+    Buzzer.buzz(0.1)
     Door.open()
     return
 

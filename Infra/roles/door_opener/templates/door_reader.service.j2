@@ -9,6 +9,8 @@ Type=simple
 ExecStart=/usr/bin/python3 {{ path_to_doors_code }}Kod/reader.py
 User=pi
 Environment=DOOR_HOME={{ path_to_doors_code }}
+Restart=on-failure
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target

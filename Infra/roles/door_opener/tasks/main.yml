@@ -20,6 +20,15 @@
     executable: pip3
   tags: [packages]
 
+- name: Set up journalctl config
+  copy:
+    src: etc/systemd/journald.conf
+    dest: /etc/systemd/journald.conf
+    mode: 0644
+  tags: [config]
+  notify:
+    - Reboot rasp
+
 - name: Set up static IP
   copy:
     src: etc/dhcpcd.conf

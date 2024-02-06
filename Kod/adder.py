@@ -1,10 +1,15 @@
 import re
 import sys
+import os
+import pwd
 from multiprocessing.connection import Listener
 import messenger
 
 
 def main() -> None:
+    if pwd.getpwuid(os.getuid()).pw_name != 'pi':
+        raise RuntimeError('Script must be run as "pi" user')
+
     listener = Listener('/tmp/adder', 'AF_UNIX')
 
     if len(sys.argv) == 1:
