@@ -9,7 +9,7 @@
 
 - name: Ensure required packages are present or install them
   apt:
-    name: i2c-tools,sqlite3,libsqlite3-dev,screen,python3-pip,python-setuptools
+    name: i2c-tools,sqlite3,libsqlite3-dev,screen,python3-pip,python3-setuptools
     state: present
     force_apt_get: yes
   tags: [packages]
@@ -18,6 +18,7 @@
   pip:
     name: py532lib,RPi.GPIO
     executable: pip3
+    break_system_packages: true
   tags: [packages]
 
 - name: Set up journalctl config
