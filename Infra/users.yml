@@ -34,3 +34,10 @@
       groups:
         - remote_access
         - sudo
+
+    - login: kacper
+      fullname: "Kacper Misiaszek"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRR4Ydn5+SgdMNH/8aJjwDcPd+W8kIO2HOlkkI2k4my"
+      groups:
+        - remote_access
+        - sudo
