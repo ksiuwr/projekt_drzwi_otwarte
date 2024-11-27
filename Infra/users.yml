@@ -14,13 +14,6 @@
         - remote_access
         - sudo
 
-    - login: piotro
-      fullname: "Piotr Węgrzyn"
-      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDdstEA5BmPJxS0AR+iQAfRACfvfO8j8hP/2PiRZ+nR"
-      groups:
-        - remote_access
-        - sudo
-
     - login: mpnogaj
       fullname: "Marcin Nogaj"
       pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm8+SvbDAaTb2v438pz/etiflc8fZU6t6LYRl0gj0Uv"
