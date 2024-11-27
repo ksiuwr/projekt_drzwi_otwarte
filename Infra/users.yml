@@ -34,3 +34,10 @@
       groups:
         - remote_access
         - sudo
+    
+    - login: weebik
+      fullname: 'Krystian Ćwikliński'
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOXpRDDx5WmYVRW6FL6ApIHvo1qnV1h7s7YVICqHdc6K"
+      groups:
+        - remote_access
+        - sudo
