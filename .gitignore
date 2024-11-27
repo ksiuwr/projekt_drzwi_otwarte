@@ -4,4 +4,5 @@
 .vscode
 doors.db
 *.pyc
-
+*.env
+node_modules
