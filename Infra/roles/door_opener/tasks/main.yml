@@ -98,6 +98,14 @@
     job: "${DOOR_HOME}/Skrypty/remove-logs.sh"
   tags: [config]
 
+- name: Creates a cron for database backup
+  cron:
+    name: Database backup
+    special_time: daily
+    user: pi
+    job: "cp ${DOOR_HOME}/doors.db ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db; xz ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db"
+  tags: [config]
+
 - name: Create service configuration for door worker daemon
   template:
     src: door_worker.service.j2
