@@ -41,3 +41,10 @@
       groups:
         - remote_access
         - sudo
+
+    - login: mic
+      fullname: "Michał Kosior"
+      pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJMPlj1xHwaGkhn4aGYQzDzL6Bc9ybod7m7vk3kldPOs"
+      groups:
+        - remote_access
+        - sudo
