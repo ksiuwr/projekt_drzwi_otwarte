@@ -9,14 +9,14 @@
 
 - name: Ensure required packages are present or install them
   apt:
-    name: i2c-tools,sqlite3,libsqlite3-dev,screen,python3-pip,python3-setuptools
+    name: i2c-tools,sqlite3,libsqlite3-dev,screen,python3-pip,python3-setuptools python3-rpi.gpio
     state: present
     force_apt_get: yes
   tags: [packages]
 
 - name: Ensure required python module is present
   pip:
-    name: py532lib,RPi.GPIO
+    name: py532lib
     executable: pip3
     break_system_packages: true
   tags: [packages]
@@ -103,7 +103,7 @@
     name: Database backup
     special_time: daily
     user: pi
-    job: "cp ${DOOR_HOME}/doors.db ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db; xz ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db"
+    job: 'cp ${DOOR_HOME}/doors.db ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db; xz ${DOOR_HOME}/Backup/doors_$(date +\%d-\%m-\%Y).db'
   tags: [config]
 
 - name: Create service configuration for door worker daemon
