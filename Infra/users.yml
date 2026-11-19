@@ -48,3 +48,10 @@
       groups:
         - remote_access
         - sudo
+
+    - login: szaranczuk
+      fullname: "Igor Hańczaruk"
+      pubkey: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLE7AqgxSRdgA/K/RHmtO2nshCw+AFQLttBVO5X/kd8j1ZoMNl3hfH1zSebIU+sYVqC7+fq2AznOMrebJBRF2z8="
+      groups:
+        - remote_access
+        - sudo
