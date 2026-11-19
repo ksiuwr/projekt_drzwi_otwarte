@@ -82,6 +82,34 @@
     checksum: yes
   tags: [code,config]
 
+- name: Copy the Discord bot into rasp
+  synchronize:
+    src: ../Discord
+    dest: "{{ path_to_doors_code }}"
+    archive: no
+    recursive: yes
+    checksum: yes
+    rsync_opts:
+      # Installed on the rasp, the token is only there
+      - "--exclude=node_modules"
+      - "--exclude=.env"
+  tags: [code,config,discord]
+  notify:
+    - Install Discord bot dependencies
+    - Register Discord bot commands
+    - Restart Discord bot
+
+# The bot used to live directly in Discord/, before it was moved to src/
+- name: Remove old Discord bot files
+  file:
+    path: "{{ path_to_doors_code }}Discord/{{ item }}"
+    state: absent
+  with_items:
+    - index.js
+    - deploy-commands.js
+    - commands
+  tags: [code,config,discord]
+
 - name: Fix ownership
   file:
     path: "{{ path_to_doors_code }}"
@@ -138,3 +166,20 @@
     state: started
     enabled: yes
   tags: [config]
+
+# Tagged with code too, the service has to match the layout of the bot code
+- name: Create service configuration for Discord bot
+  template:
+    src: discord_zamek.service.j2
+    dest: /lib/systemd/system/discord_zamek.service
+    mode: '0644'
+  tags: [code,config,discord]
+  notify:
+    - Restart Discord bot
+
+- name: Start Discord bot
+  service:
+    name: discord_zamek.service
+    state: started
+    enabled: yes
+  tags: [config,discord]

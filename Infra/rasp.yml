@@ -15,6 +15,6 @@
 
   - include_role:
       name: door_opener
-    tags: [code, config, packages]
+    tags: [code, config, packages, discord]
     vars:
       path_to_doors_code: "/home/pi/projekt_drzwi_otwarte/"
