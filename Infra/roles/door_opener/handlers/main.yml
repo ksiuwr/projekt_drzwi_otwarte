@@ -10,3 +10,24 @@
   systemd:
     state: restarted
     name: door_worker.service 
+
+# runuser rather than become_user, which would need acl on the rasp
+- name: Install Discord bot dependencies
+  command: runuser -u pi -- npm ci --omit=dev
+  args:
+    chdir: "{{ path_to_doors_code }}Discord"
+  environment:
+    HOME: /home/pi
+
+- name: Register Discord bot commands
+  command: runuser -u pi -- npm run deploy-commands
+  args:
+    chdir: "{{ path_to_doors_code }}Discord"
+  environment:
+    HOME: /home/pi
+
+- name: Restart Discord bot
+  systemd:
+    state: restarted
+    name: discord_zamek.service
+    daemon_reload: yes
